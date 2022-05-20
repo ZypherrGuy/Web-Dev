@@ -1493,7 +1493,7 @@ input[type="submit"]:hover {
 	    -o-transition-timing-function: cubic-bezier(.19, .94, .336, 1);
 	        transition-timing-function: cubic-bezier(.19, .94, .336, 1);
 	border-radius: 50%;
-	background: #ffffff;
+	background: #fa6b00;
 	overflow: hidden;
 }
 
@@ -1505,17 +1505,17 @@ body.out .pointer {
 .pointer.large {
 	width: 65px;
 	height: 65px;
-	background: rgba(239,13,51,.15);
-	-webkit-box-shadow: 0 0 30px rgba(239,13,51, 0.8);
-	    box-shadow: 0 0 30px rgba(239,13,51, 0.8);
+	background: rgba(250,107,0,.15);
+	-webkit-box-shadow: 0 0 30px rgba(250,68,0, 0.8);
+	    box-shadow: 0 0 30px rgba(250,68,0, 0.8);
 }
 
 .pointer.small {
 	width: 25px;
 	height: 25px;
-	background: rgba(239,13,51,0);
-	-webkit-box-shadow: 0 0 30px #ef0d33;
-	    box-shadow: 0 0 30px #ef0d33;
+	background: rgba(250,107,0,.15);
+	-webkit-box-shadow: 0 0 30px rgba(250,68,0, 0.8);
+	    box-shadow: 0 0 30px rgba(250,68,0, 0.8);
 }
 
 .pointer.right {
@@ -1668,15 +1668,15 @@ body,
 /* 3.2. Loading animation */
 .loading {
   	position: fixed;
-  	top: calc(50% - 50px);
-  	left: calc(50% - 50px);
+  	top: calc(50% - 100px);
+  	left: calc(50% - 100px);
   	visibility: visible;
   	-webkit-transition: .5s cubic-bezier(.76, .06, .85, .07);
   		-o-transition: .5s cubic-bezier(.76, .06, .85, .07);
   			transition: .5s cubic-bezier(.76, .06, .85, .07);
   	z-index: 101;
-  	width: 100px;
-  	height: 100px;
+  	width: 200px;
+  	height: 200px;
 }
 
 .loading:before {
@@ -1692,7 +1692,7 @@ body,
 }
 
 .logo-loading {
-	width: 70px;
+	width: 150px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -2463,7 +2463,7 @@ body.out .nav-container.active li li:nth-last-child(12) a {
 	content: attr(data-text);
 	position: absolute;
 	top: 50%;
-	color: #ef0d33;
+	color: #fa4400;
 	-webkit-transform: translateY(-50%);
 	    -ms-transform: translateY(-50%);
 	        transform: translateY(-50%);
