@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+		<title>XEN - Creative Agency HTML5 Responsive Tempate</title>
+		
+		<!-- fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Saira:300,400,500,600,700%7COswald:300,400,500,600,700" rel="stylesheet" type="text/css">
+		
+		<!-- styles -->
+		<link href="../XEN/assets/css/plugins.css" rel="stylesheet">
+		<link href="../XEN/assets/css/style.css" rel="stylesheet">
+		<link href="css/prettify.css" rel="stylesheet">
+		<link href="css/theme.css" rel="stylesheet">
+	</head>
+	
+	<body>
+		<div class="doc-nav">
+			<ul class="container">
+				<li><a href="#xen">XEN Documentation</a></li>
+				<li><a href="#html">1. HTML Structure</a></li>
+				<li><a href="#css">2. CSS files</a></li>
+				<li><a href="#javascript">3. JavaScript</a></li>
+				<li><a href="#credits">4. Credits</a></li>
+				<li><a href="#support">5. Support</a></li>
+			</ul>
+		</div>
+					
+		<section id="xen" class="doc-bg doc-margin">
+			<div class="container small top-bottom-padding-120">
+				<h2 class="medium-title text-center">XEN HTML5 Tempate Documentation</h2>
+				<p class="p-style-medium text-center">Thank you for purchasing my theme. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="https://themeforest.net/user/jinnagik" target="_blank" class="p-style-medium bold700-text red-color">here</a>. Thanks so much!</p>		
+			</div>
+		</section>
+					
+		<section id="html" class="top-padding-120 container">	
+			<div class="bottom-padding-60 text-center">
+				<h4 class="title-style">1. HTML Structure</h4>
+				<p class="p-style-small">The body part of the Html file is divided in four main sections: header, nav, main and footer.</p>
+			</div>
+							
+			<h4 class="small-title-oswald">HEADER</h4>
+			<p class="p-letter-style">Header HTML structure:</p>
+	<pre class="prettyprint linenums">
+&lt;!-- header start --&gt;
+&lt;header class=&quot;fixed-header&quot;&gt;
+    &lt;!-- header-flex-box start --&gt;
+    &lt;div class=&quot;header-flex-box&quot;&gt;
+        &lt;!-- logo start --&gt;
+        &lt;a href=&quot;index.html&quot; class=&quot;logo pointer-large animsition-link&quot;&gt;
+            &lt;div class=&quot;logo-img-box&quot;&gt;
+                &lt;img class=&quot;logo-white&quot; src=&quot;assets/images/logo/logo-white.png&quot; alt=&quot;logo&quot;&gt;
+                &lt;img class=&quot;logo-black&quot; src=&quot;assets/images/logo/logo-black.png&quot; alt=&quot;logo&quot;&gt;
+            &lt;/div&gt;
+        &lt;/a&gt;&lt;!-- logo end --&gt;
+		        
+        &lt;!-- menu-open start --&gt;
+        &lt;div class=&quot;menu-open pointer-large&quot;&gt;
+            &lt;span class=&quot;hamburger&quot;&gt;&lt;/span&gt;
+        &lt;/div&gt;&lt;!-- menu-open end --&gt;
+    &lt;/div&gt;&lt;!-- header-flex-box end --&gt;
+&lt;/header&gt;&lt;!-- header end --&gt;
+</pre>
+	
+			<h4 class="small-title-oswald top-padding-60">Nav</h4>
+			<p class="p-letter-style">Nav HTML structure:</p>
+	<pre class="prettyprint linenums">
+&lt;!-- nav-container start --&gt;
+&lt;nav class=&quot;nav-container dark-bg-1&quot;&gt;
+    &lt;!-- nav-logo start --&gt;
+    &lt;div class=&quot;nav-logo&quot;&gt;
+        &lt;img src=&quot;assets/images/logo/logo-white.png&quot; alt=&quot;logo&quot;&gt;
+    &lt;/div&gt;&lt;!-- nav-logo end --&gt;
+			
+    &lt;!-- menu-close --&gt;
+    &lt;div class=&quot;menu-close pointer-large&quot;&gt;&lt;/div&gt;
+			
+    &lt;!-- nav-menu start --&gt;
+    &lt;ul class=&quot;nav-menu dark-bg-1&quot;&gt;
+        &lt;!-- nav-box start --&gt;
+        &lt;li class=&quot;nav-box active&quot;&gt;
+            &lt;a href=&quot;index.html&quot; class=&quot;animsition-link pointer-large&quot;&gt;
+                &lt;span class=&quot;nav-btn active&quot; data-text=&quot;Home&quot;&gt;Home&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;div class=&quot;nav-bg&quot; style=&quot;background-image: url(assets/images/backgrounds/pexels-photo-1806031.jpeg);&quot;&gt;&lt;/div&gt;
+        &lt;/li&gt;&lt;!-- nav-box end --&gt;
+        &lt;!-- nav-box start --&gt;
+        &lt;li class=&quot;nav-box&quot;&gt;
+            &lt;a href=&quot;about.html&quot; class=&quot;animsition-link pointer-large&quot;&gt;
+                &lt;span class=&quot;nav-btn&quot; data-text=&quot;About&quot;&gt;About&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;div class=&quot;nav-bg&quot; style=&quot;background-image: url(assets/images/backgrounds/adolescent-adult-diversity-1034361.jpg);&quot;&gt;&lt;/div&gt;
+        &lt;/li&gt;&lt;!-- nav-box end --&gt;
+        &lt;!-- nav-box start --&gt;
+        &lt;li class=&quot;nav-box&quot;&gt;
+            &lt;a href=&quot;services.html&quot; class=&quot;animsition-link pointer-large&quot;&gt;
+                &lt;span class=&quot;nav-btn&quot; data-text=&quot;Services&quot;&gt;Services&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;div class=&quot;nav-bg&quot; style=&quot;background-image: url(assets/images/backgrounds/bald-casual-facial-hair-1708528.jpg);&quot;&gt;&lt;/div&gt;
+        &lt;/li&gt;&lt;!-- nav-box end --&gt;
+        &lt;!-- nav-box start --&gt;
+        &lt;li class=&quot;nav-box&quot;&gt;
+            &lt;a href=&quot;portfolio.html&quot; class=&quot;animsition-link pointer-large&quot;&gt;
+                &lt;span class=&quot;nav-btn&quot; data-text=&quot;Portfolio&quot;&gt;Portfolio&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;div class=&quot;nav-bg&quot; style=&quot;background-image: url(assets/images/backgrounds/art-artistic-artsy-1988681.jpg);&quot;&gt;&lt;/div&gt;
+        &lt;/li&gt;&lt;!-- nav-box end --&gt;
+        &lt;!-- nav-box start --&gt;
+        &lt;li class=&quot;nav-box&quot;&gt;
+            &lt;a href=&quot;blog.html&quot; class=&quot;animsition-link pointer-large&quot;&gt;
+                &lt;span class=&quot;nav-btn&quot; data-text=&quot;Blog&quot;&gt;Blog&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;div class=&quot;nav-bg&quot; style=&quot;background-image: url(assets/images/backgrounds/beautiful-black-close-up-1689731.jpg);&quot;&gt;&lt;/div&gt;
+        &lt;/li&gt;&lt;!-- nav-box end --&gt;
+        &lt;!-- nav-box start --&gt;
+        &lt;li class=&quot;nav-box&quot;&gt;
+            &lt;a href=&quot;contact.html&quot; class=&quot;animsition-link pointer-large&quot;&gt;
+                &lt;span class=&quot;nav-btn&quot; data-text=&quot;Contact&quot;&gt;Contact&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;div class=&quot;nav-bg&quot; style=&quot;background-image: url(assets/images/backgrounds/double-exposure-2390185_1920.jpg);&quot;&gt;&lt;/div&gt;
+        &lt;/li&gt;&lt;!-- nav-box end --&gt;
+    &lt;/ul&gt;&lt;!-- nav-menu end --&gt;
+&lt;/nav&gt;&lt;!-- nav-container end --&gt;
+</pre>
+	
+			<h4 class="small-title-oswald top-padding-60">Main</h4>
+			<p class="p-letter-style">Main HTML structure:</p>
+	<pre class="prettyprint linenums">
+&lt;!-- animsition-overlay start --&gt;
+&lt;main class=&quot;animsition-overlay&quot; data-animsition-overlay=&quot;true&quot;&gt;
+    &lt;!-- page-head start --&gt;
+    &lt;section id=&quot;up&quot; class=&quot;page-head flex-min-height-box dark-bg-2&quot;&gt;
+        &lt;!-- page-head-bg --&gt;
+        &lt;div class=&quot;page-head-bg overlay-loading2&quot; style=&quot;background-image: url(assets/images/backgrounds/adolescent-adult-diversity-1034361.jpg);&quot;&gt;&lt;/div&gt;
+				
+        &lt;!-- flex-min-height-inner start --&gt;
+        &lt;div class=&quot;flex-min-height-inner&quot;&gt;
+            &lt;!-- flex-container start --&gt;
+            &lt;div class=&quot;container top-bottom-padding-120 flex-container response-999&quot;&gt;
+                &lt;!-- column start --&gt;
+                &lt;div class=&quot;six-columns six-offset&quot;&gt;
+                    &lt;div class=&quot;content-left-margin-40&quot;&gt;
+                        &lt;h2 class=&quot;overlay-loading2 tr-delay03 medium-title red-color&quot;&gt;Welcome Xen&lt;/h2&gt;
+                        &lt;h3 class=&quot;large-title-bold text-color-4&quot;&gt;
+                            &lt;span class=&quot;overlay-loading2 overlay-light-bg-1 tr-delay04&quot;&gt;Best Solutions&lt;/span&gt;&lt;br&gt;
+                            &lt;span class=&quot;overlay-loading2 overlay-light-bg-1 tr-delay05&quot;&gt;& ideas for&lt;/span&gt;&lt;br&gt;
+                            &lt;span class=&quot;overlay-loading2 overlay-light-bg-1 tr-delay06&quot;&gt;You Business&lt;/span&gt;
+                        &lt;/h3&gt;
+                        &lt;p class=&quot;d-flex-wrap top-margin-20 text-color-4&quot;&gt;
+                            &lt;span class=&quot;small-title-oswald text-height-20 fade-loading tr-delay07 top-margin-10&quot;&gt;Creative team&lt;/span&gt;
+                            &lt;span class=&quot;small-title-oswald text-height-20 fade-loading tr-delay08 top-margin-10&quot;&gt;Innovation ideas&lt;/span&gt;
+                            &lt;span class=&quot;small-title-oswald text-height-20 fade-loading tr-delay09 top-margin-10&quot;&gt;Best services&lt;/span&gt;
+                        &lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;&lt;!-- column end --&gt;
+            &lt;/div&gt;&lt;!-- flex-container end --&gt;
+        &lt;/div&gt;&lt;!-- flex-min-height-inner end --&gt;
+	  		
+        &lt;!-- scroll-btn start --&gt;
+        &lt;a href=&quot;#down&quot; class=&quot;scroll-btn pointer-large&quot;&gt;
+            &lt;div class=&quot;scroll-arrow-box&quot;&gt;
+                &lt;span class=&quot;scroll-arrow&quot;&gt;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;scroll-btn-flip-box&quot;&gt;
+                &lt;span class=&quot;scroll-btn-flip&quot; data-text=&quot;Scroll&quot;&gt;Scroll&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/a&gt;&lt;!-- scroll-btn end --&gt;
+    &lt;/section&gt;&lt;!-- page-head end --&gt;
+    
+    ...
+    		
+&lt;/main&gt;&lt;!-- animsition-overlay end --&gt;
+</pre>
+	
+			<h4 class="small-title-oswald top-padding-60">FOOTER</h4>
+			<p class="p-letter-style">Footer HTML structure:</p>
+	<pre class="prettyprint linenums">
+&lt;!-- footer start --&gt;
+&lt;footer class=&quot;footer dark-bg-1&quot;&gt;
+    &lt;!-- flex-container start --&gt;
+    &lt;div class=&quot;flex-container container top-bottom-padding-90&quot;&gt;
+        &lt;!-- column start --&gt;
+        &lt;div class=&quot;two-columns bottom-padding-60&quot;&gt;
+            &lt;div class=&quot;content-right-margin-10 footer-center-mobile&quot;&gt;
+                &lt;img class=&quot;footer-logo&quot; src=&quot;assets/images/logo/logo-white.png&quot; alt=&quot;logo&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;&lt;!-- column end --&gt;
+        &lt;!-- column start --&gt;
+        &lt;div class=&quot;three-columns bottom-padding-60&quot;&gt;
+            &lt;div class=&quot;content-left-right-margin-10&quot;&gt;
+                &lt;ul class=&quot;footer-menu text-color-4&quot;&gt;
+                    &lt;li&gt;&lt;a class=&quot;pointer-large animsition-link small-title-oswald hover-color active&quot; href=&quot;index.html&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a class=&quot;pointer-large animsition-link small-title-oswald hover-color&quot; href=&quot;about.html&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a class=&quot;pointer-large animsition-link small-title-oswald hover-color&quot; href=&quot;services.html&quot;&gt;Services&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a class=&quot;pointer-large animsition-link small-title-oswald hover-color&quot; href=&quot;portfolio.html&quot;&gt;Portfolio&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a class=&quot;pointer-large animsition-link small-title-oswald hover-color&quot; href=&quot;blog.html&quot;&gt;Blog&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a class=&quot;pointer-large animsition-link small-title-oswald hover-color&quot; href=&quot;contact.html&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;&lt;!-- column end --&gt;
+        &lt;!-- column start --&gt;
+        &lt;div class=&quot;four-columns bottom-padding-60&quot;&gt;
+            &lt;div class=&quot;content-left-right-margin-10 footer-center-mobile&quot;&gt;
+                &lt;ul class=&quot;footer-information text-color-4&quot;&gt;
+                    &lt;li&gt;&lt;i class=&quot;far fa-envelope&quot;&gt;&lt;/i&gt;&lt;a href=&quot;#&quot; class=&quot;xsmall-title-oswald&quot;&gt;email@xen_agency.com&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;i class=&quot;fas fa-mobile-alt&quot;&gt;&lt;/i&gt;&lt;a href=&quot;#&quot; class=&quot;xsmall-title-oswald&quot;&gt;+23 8 8532 7834&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;i class=&quot;fas fa-map-marker-alt&quot;&gt;&lt;/i&gt;&lt;a href=&quot;#&quot; class=&quot;xsmall-title-oswald text-height-17&quot;&gt;PO Box 223158 Oliver Street&lt;br&gt;&lt;span&gt;East Victoria 2006 UK&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;&lt;!-- column end --&gt;
+        &lt;!-- column start --&gt;
+        &lt;div class=&quot;three-columns bottom-padding-60&quot;&gt;
+            &lt;div class=&quot;content-left-margin-10&quot;&gt;
+                &lt;ul class=&quot;footer-social&quot;&gt;
+                    &lt;li class=&quot;flip-btn-box&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;flip-btn pointer-small&quot; data-text=&quot;Instagram&quot;&gt;Instagram&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class=&quot;flip-btn-box&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;flip-btn pointer-small&quot; data-text=&quot;Facebook&quot;&gt;Facebook&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class=&quot;flip-btn-box&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;flip-btn pointer-small&quot; data-text=&quot;Spotify&quot;&gt;Spotify&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class=&quot;flip-btn-box&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;flip-btn pointer-small&quot; data-text=&quot;Vimeo&quot;&gt;Vimeo&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class=&quot;flip-btn-box&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;flip-btn pointer-small&quot; data-text=&quot;Behance&quot;&gt;Behance&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;&lt;!-- column end --&gt;
+        &lt;!-- column start --&gt;
+        &lt;div class=&quot;twelve-columns&quot;&gt;
+            &lt;p class=&quot;p-letter-style text-color-4 footer-copyright&quot;&gt;&copy; Copyright 2019 XEN. Theme by &lt;a href=&quot;#&quot;&gt;Jinna Gik&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;&lt;!-- column end --&gt;
+    &lt;/div&gt;&lt;!-- flex-container end --&gt;
+&lt;/footer&gt;&lt;!-- footer end --&gt;
+</pre>
+	
+			<h4 class="small-title-oswald top-padding-60">GRID</h4>
+			<p class="p-letter-style">GRID structure:</p>
+	<pre class="prettyprint linenums">
+&lt;div class=&quot;flex-container&quot;&gt;
+    &lt;div class=&quot;two-columns&quot;&gt;
+        Content
+    &lt;/div&gt;
+    &lt;div class=&quot;three-columns&quot;&gt;
+        Content
+    &lt;/div&gt;
+    &lt;div class=&quot;four-columns&quot;&gt;
+        Content
+    &lt;/div&gt;
+    &lt;div class=&quot;three-columns&quot;&gt;
+        Content
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>	
+		</section>
+				
+		<section id="css" class="top-padding-120 container">	
+			<div class="text-center">
+				<h4 class="title-style">2. CSS files</h4>
+				<p class="p-style-small">Main css files like style.css are located in css folder.</p>
+			</div>		
+	<pre class="prettyprint">
+<span class="pln">assets</span><span class="pun">/</span><span class="pln"></span>
+    <span class="pun">├──</span><span class="pln"> css</span>
+    <span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> plugins.css</span>
+    <span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> style.css</span>
+    <span class="pun">├──</span><span class="pln"> images</span>
+    <span class="pun">├──</span><span class="pln"> js</span>
+    <span class="pun">├──</span><span class="pln"> webfonts</span>
+</pre>
+			<p class="p-style-small top-padding-30 text-center">File <span class="red-color">/assets/css/style.css</span> contains all stylings for the theme. At the begining of the file is a table of contents. This is a place where you can edit styling. I suggest you overide default theme style at the end of this file.</p>
+	<pre class="prettyprint linenums">
+/********************************************************
+	
+  1. Basics
+    1.1. Helpers
+    1.2. Custom grid
+    1.3. Forms
+  2. Custom mouse cursor
+  3. Animsition preloader
+    3.1. Animsition-overlay
+    3.2. Loading animation
+    3.3. Add class after preloader
+  4. Header
+    4.1. Header logo
+    4.2. Header menu-open
+    4.3. MidnightHeader
+    4.4. Headroom
+  5. Navigation
+    5.1. Navigation logo
+    5.2. Navigation close icon
+    5.3. Navigation menu
+    5.4. Navigation links
+    5.5. Navigation backgrounds
+    5.6. Navigation backgrounds overlay
+  6. Colors
+    6.1. Bg colors
+    6.2. Text colors
+  7. Typography
+  8. Buttons
+    8.1. To top button
+    8.2. Border button
+    8.3. Flip button
+    8.4. Arrow button
+    8.5. Scroll button
+    8.6. Overlay Button
+  9. Animations
+    9.1. Loading animations
+      9.1.1. Loading overlay animation #1
+      9.1.2. Loading overlay animation #2
+      9.1.3. Loading fade animation
+      9.1.4. Loading title fill animation
+    9.2. Scroll animations
+      9.2.1. Scroll overlay animation #1
+      9.2.2. Scroll overlay animation #2
+      9.2.3. Scroll fade animation
+      9.2.4. Scroll title fill animation
+  10. Hovers
+  11. Footer
+  12. Magnific popup
+    12.1. Popup arrows
+    12.2. Popup counter 
+    12.3. Popup close
+  13. Min-height flex center (IE11-fix)
+  14. Page-head
+  15. Swiper slider
+    15.1. Home slider
+      15.1.1. Home slider title fill effect
+      15.1.2. Home slider overlay effect
+      15.1.3. Home slider overlay #2 effect
+      15.1.4. Home slider fade effect
+    15.2. Testimonials slider
+    15.3. About slider
+    15.4. Swiper pagination
+      15.4.1. Home slider pagination
+      15.4.2. Testimonials slider pagination
+    15.5. Swiper arrows
+      15.5.1. Home slider arrows
+      15.5.2. About slider arrows
+  16. List dots
+  17. Services
+  18. Progress bar
+  19. Portfolio
+  20. Project
+  21. About
+    21.1. Team
+  22. Our clients
+  23. Video content
+  24. Blog
+    24.1. Sidebar
+      24.1.1. Search form
+      24.1.2. Categories
+      24.1.3. Recent-posts
+      24.1.4. Tegs
+      24.1.5. Widget-instagram
+    24.2. Single post
+      24.2.1. Post autor
+      24.2.2. Post comments
+      24.2.3. Comment form
+  25. Contact
+    25.1. Contact form
+
+********************************************************/
+</pre>
+			<p class="p-style-small top-padding-30 text-center">If you would like to edit a specific section of the site, simply find the appropriate label in the CSS file, and then scroll down until you find the appropriate style that needs to be edited.</p>			
+	<pre class="prettyprint linenums">
+/* 5.3. Navigation menu */
+.nav-menu {
+    display: -webkit-box;
+        display: -ms-flexbox;
+            display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 50%;
+    height: 100%;
+    margin-left: 50%;
+}
+
+.nav-box {
+    margin: 8px 0;
+    padding: 0;
+    overflow: hidden;
+}
+</pre>
+		</section>
+		
+		<section id="javascript" class="top-padding-120 container">	
+			<div class="text-center">
+				<h4 class="title-style">3. JavaScript</h4>
+				<p class="p-style-small">This theme imports several Javascript files from plugins folder.</p>
+			</div>
+	<pre class="prettyprint">
+<span class="pln">assets</span><span class="pun">/</span><span class="pln"></span>
+    <span class="pun">├──</span><span class="pln"> css</span>
+    <span class="pun">├──</span><span class="pln"> images</span>
+    <span class="pun">├──</span><span class="pln"> js</span>
+    <span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> plugins.js</span>
+    <span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> main.js</span>
+    <span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> typewriter.js</span>
+    <span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> particles_init.js</span>
+    <span class="pun">├──</span><span class="pln"> webfonts</span>
+</pre>
+			<p class="content-p top-padding-30 text-center">Not compressed versions of js files are located too in this folder.</p>
+	<pre class="prettyprint">
+<span class="pln">assets</span><span class="pun">/</span><span class="pln"></span>
+    <span class="pun">├──</span><span class="pln"> css</span>
+    <span class="pun">├──</span><span class="pln"> images</span>
+    <span class="pun">├──</span><span class="pln"> js</span>
+    <span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> plugins.js</span>
+    <span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> main.js</span>
+    <span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> animsition.js</span>
+    <span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> footer-reveal.js</span>
+    <span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> jquery.magnific-popup.js</span>
+    <span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> jquery.malihu.PageScroll2id.js</span>
+    <span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> Headroom.js</span>
+    <span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> jQuery2.2.0.js</span>
+    <span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> ScrollAnimations.js</span>
+    <span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> jQuery.headroom.js</span>
+    <span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> swiper.js</span>
+    <span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> midnight.jquery.js</span>
+    <span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> isotope.js</span>
+    <span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> core.js</span>
+    <span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> particles.js</span>
+    <span class="pun">├──</span><span class="pln"> webfonts</span>
+</pre>
+			<p class="p-style-small top-padding-30 text-center">Main.js scripts contain function, plugins initialize and handle javascript event. For example:</p>
+			
+	<pre class="prettyprint linenums">
+$(function() {
+    &quot;use strict&quot;;
+	    
+    ...
+		
+    $(document).ready(function() {
+			
+        /* 2. Animsition preloader */
+        $(&quot;.animsition-overlay&quot;).animsition({
+            inClass: &quot;overlay-slide-in-right&quot;,
+            outClass: &quot;overlay-slide-out-right&quot;,
+            inDuration: 1,
+            outDuration: 1500,
+            linkElement: &quot;.animsition-link&quot;,
+            // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+            loading: false,
+            loadingParentElement: &quot;body&quot;, //animsition wrapper element
+            loadingClass: &quot;animsition-loading&quot;,
+            loadingInner: &quot;&quot;, // e.g '&lt;img src=&quot;loading.svg&quot; /&gt;'
+            timeout: false,
+            timeoutCountdown: 5000,
+            onLoadEvent: true,
+            browser: [ &quot;animation-duration&quot;, &quot;-webkit-animation-duration&quot;],
+            // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+            // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+            overlay : true,
+            overlayClass : &quot;animsition-overlay-slide&quot;,
+            overlayParentElement : &quot;body&quot;,
+            transition: function(url){ window.location.href = url; }
+        });
+	        
+        ...
+			
+    });
+	    
+    ...
+		
+});
+</pre>
+		</section>
+		
+		<section id="credits" class="container top-padding-120 bottom-padding-90">	
+			<h4 class="title-style text-center">4. Credits</h4>
+			<h4 class="small-title-oswald top-padding-60">PLUGINS</h4>
+			
+			<table>
+				<thead>
+					<tr>
+						<th>Plugin Name</th>
+						<th>Version</th>
+						<th>Documentation</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="doc-bg">
+						<td>Swiper</td>
+						<td>4.0.7</td>
+						<td><a href="http://www.idangero.us/swiper/" target="_blank">Swiper</a></td>         
+					</tr>
+					<tr>
+						<td>Footer Reveal</td>
+						<td>-</td>
+						<td><a href="http://iainandrew.github.io/footer-reveal/" target="_blank">Footer Reveal</a></td>         
+					</tr>
+					<tr class="doc-bg">
+						<td>jQuery ScrollAnimations</td>
+						<td>1.0.1</td>
+						<td><a href="https://github.com/mindgruve/jquery.scrollAnimations" target="_blank">ScrollAnimations</a></td>         
+					</tr>
+					<tr>
+						<td>jQuery</td>
+						<td>2.2.0</td>
+						<td><a href="http://jquery.com/" target="_blank">jQuery</a></td>         
+					</tr>
+					<tr class="doc-bg">
+						<td>Headroom</td>
+						<td>0.9.4</td>
+						<td><a href="http://wicky.nillia.ms/headroom.js" target="_blank">Headroom</a></td>         
+					</tr>
+					<tr>
+						<td>Page scroll to id</td>
+						<td>1.5.9</td>
+						<td><a href="http://manos.malihu.gr/page-scroll-to-id/" target="_blank">Page scroll to id</a></td>         
+					</tr>
+					<tr class="doc-bg">
+						<td>Magnific Popup</td>
+						<td>1.1.0</td>
+						<td><a href="http://dimsemenov.com/plugins/magnific-popup/" target="_blank">Magnific Popup</a></td>        
+					</tr>
+					<tr>
+						<td>Midnight</td>
+						<td>1.1.1</td>
+						<td><a href="http://aerolab.github.io/midnight.js/" target="_blank">Midnight</a></td>        
+					</tr>
+					<tr class="doc-bg">
+						<td>Animsition</td>
+						<td>4.0.2</td>
+						<td><a href="http://blivesta.github.io/animsition" target="_blank">Animsition</a></td>
+					</tr>
+					<tr>
+						<td>Normalize.css</td>
+						<td>8.0.1</td>
+						<td><a href="https://github.com/necolas/normalize.css" target="_blank">Normalize</a></td>        
+					</tr>
+					<tr class="doc-bg">
+						<td>Font Awesome</td>
+						<td>5.5.0</td>
+						<td><a href="https://fontawesome.com" target="_blank">Font Awesome</a></td>         
+					</tr>
+					<tr>
+						<td>Isotope</td>
+						<td>3.0.6</td>
+						<td><a href="https://isotope.metafizzy.co" target="_blank">Isotope</a></td>        
+					</tr>
+					<tr class="doc-bg">
+						<td>Typewriter JS</td>
+						<td>2</td>
+						<td><a href="https://safi.me.uk/typewriterjs/" target="_blank">Typewriter JS</a></td>         
+					</tr>
+					<tr>
+						<td>Particles js</td>
+						<td>2.0.0</td>
+						<td><a href="https://vincentgarreau.com/particles.js/" target="_blank">Particles js</a></td>        
+					</tr>
+				</tbody>
+			</table>
+			
+			<p class="p-style-small top-padding-30 text-center">Theme used the following images and fonts as listed.</p>
+			<table>
+				<thead>
+					<tr class="doc-bg">
+						<th>Source Name</th>
+						<th>Source Url</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Pexels</td>
+						<td><a href="https://www.pexels.com/" target="_blank">www.pexels.com</a></td>
+					</tr>
+					<tr class="doc-bg">
+						<td>Google Fonts</td>
+						<td><a href="https://fonts.google.com/" target="_blank">fonts.google.com</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		
+		<section id="support" class="top-bottom-padding-120 doc-bg">
+			<div class="container text-center">
+				<h4 class="title-style">5. Support</h4>
+				<p class="p-style-small">Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. I'll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p>		
+			</div>
+		</section>
+		
+		<!-- Javascript -->
+		<script src="../XEN/assets/js/plugins.js"></script>
+		<script src="js/prettify.js"></script>
+		<script src="js/theme.js"></script>
+	</body>
+</html>
