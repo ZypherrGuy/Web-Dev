@@ -37,19 +37,12 @@
       </sidebar-link>
       <sidebar-link to="/upgrade" class="active-pro">
         <md-icon>unarchive</md-icon>
-        <p>Upgrade to PRO</p>
+        <p></p>
       </sidebar-link>
     </side-bar>
 
     <div class="main-panel">
       <top-navbar></top-navbar>
-
-      <fixed-plugin
-        :color.sync="sidebarBackground"
-        :image.sync="sidebarBackgroundImage"
-      >
-      </fixed-plugin>
-
       <dashboard-content> </dashboard-content>
 
       <content-footer v-if="!$route.meta.hideFooter"></content-footer>
@@ -62,7 +55,6 @@ import TopNavbar from "./TopNavbar.vue";
 import ContentFooter from "./ContentFooter.vue";
 import DashboardContent from "./Content.vue";
 import MobileMenu from "@/pages/Layout/MobileMenu.vue";
-import FixedPlugin from "./Extra/FixedPlugin.vue";
 
 export default {
   components: {
@@ -70,7 +62,6 @@ export default {
     DashboardContent,
     ContentFooter,
     MobileMenu,
-    FixedPlugin,
   },
   data() {
     return {
