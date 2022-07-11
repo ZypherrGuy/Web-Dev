@@ -51,11 +51,11 @@ export default {
     },
     imgLogo: {
       type: String,
-      default: require("@/assets/img/vue-logo.png"),
+      default: require("@/assets/img/ssadmin-logo.png"),
     },
     sidebarItemColor: {
       type: String,
-      default: "green",
+      default: "red",
       validator: (value) => {
         let acceptedValues = ["", "purple", "blue", "green", "orange", "red"];
         return acceptedValues.indexOf(value) !== -1;
