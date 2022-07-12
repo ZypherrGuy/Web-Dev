@@ -53,11 +53,6 @@ const routes = [
         name: "Notifications",
         component: Notifications,
       },
-      {
-        path: "upgrade",
-        name: "",
-        component: UpgradeToPRO,
-      },
     ],
   },
 ];
