@@ -1,48 +1,40 @@
 <?php
-session_start();
-include "db-connection.php";
+include 'app-assets/server/db-connection.php';
 
-$error=''; // Variable To Store Error Message
+if(isset($_POST['userEmailAddress'])){
+	if(!isset($_SESSION)) { 
+		debug_to_console("Session Not Available");
+		session_start(); 
+		debug_to_console("Session Started");
+	}else{
+		debug_to_console("Session Available");
+	}
+	
+	$email = $_POST['userEmailAddress'];
+	$password = $_POST['userPassword'];
 
-if (isset($_POST['submit'])) {
-debug_to_console("Submit Clicked!");
+	$sql = "SELECT tb_users.user_id, tb_users.user_name, tb_users.user_email, tb_loginauth.user_password 
+			FROM tb_users 
+			INNER JOIN tb_loginauth ON tb_users.user_id = tb_loginauth.user_id 
+			WHERE tb_users.user_email = '$email' AND tb_loginauth.user_password = '$password'";
 
-if (empty($_POST['userEmail']) || empty($_POST['userPassword'])) {
-debug_to_console("Empty Fields!");
+	$result = mysqli_query($Conn, $sql);
+	$row = mysqli_fetch_assoc($result);
+	$_SESSION['username'] = $row['user_name'];
+
+	if(mysqli_num_rows($result)==1){
+
+		if (isset($_SESSION['username'])) {
+			debug_to_console("Session not Empty");
+			header("Location: TestLogin.php");
+			//echo "Welcome ".$_SESSION['username'];
+		}
+		
+		exit();
+	}
+	else{
+		echo "You cant login - bad login credentials.";
+		exit();
+	}
 }
-else
-{
-debug_to_console("Not EmptyFields!");
-// Define $UserEmail and $password
-$UserEmail=$_POST['userEmail'];
-$password=$_POST['userPassword'];
-
-// To protect MySQL injection for Security purpose
-$UserEmail = stripslashes($UserEmail);
-$password = stripslashes($password);
-$UserEmail = mysql_real_escape_string($UserEmail);
-$password = mysql_real_escape_string($password);
-
-
-// SQL query to fetch information of registerd users and finds user match.
-$query = $sql = "SELECT tb_users.user_id, tb_users.user_name, tb_users.user_email, tb_users.user_ign, tb_users.user_image, tb_loginauth.user_password 
-FROM tb_users 
-INNER JOIN tb_loginauth ON tb_users.user_id = tb_loginauth.user_id 
-WHERE tb_users.user_email = '$userEmail' AND tb_loginauth.user_password = '$userPassword'";
-
-$rows = mysql_num_rows($query);
-if ($rows == 1) {
-$_SESSION['user_email']=$UserEmail; // Initializing Session
-header("location: home.php"); // Redirecting To Other Page
-} else {
-$error = "Email or Password is invalid";
-}
-}
-
-
-
-
-}
-
-debug_to_console("End!");
 ?>

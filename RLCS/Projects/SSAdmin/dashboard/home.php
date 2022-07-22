@@ -1,7 +1,6 @@
 <?php
 session_start();
-
-if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
+?>
 
 <!DOCTYPE html>
 <html lang="en" class="loading">
@@ -890,5 +889,3 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
     <!-- END PAGE LEVEL JS-->
   </body>
 </html>
-}
-?>

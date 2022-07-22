@@ -1,5 +1,5 @@
-<?php 
-include('app-assets/server/login.php');
+<?php
+    include 'app-assets/server/login.php';
 ?>
 
 <!DOCTYPE html>
@@ -42,10 +42,10 @@ include('app-assets/server/login.php');
                     </div>
                     <div class="card-body">
                         <div class="card-block">
-                            <form action="" method="post">
+                            <form action="#" method="POST">
                                 <div class="form-group">
                                     <div class="col-md-12">
-                                        <input type="email" class="form-control form-control-lg" name="userEmail" id="userEmail" placeholder="Email Address" required email>
+                                        <input type="email" class="form-control form-control-lg" name="userEmailAddress" id="userEmailAddress" placeholder="Email Address" required email>
                                     </div>
                                 </div>
 
@@ -57,7 +57,7 @@ include('app-assets/server/login.php');
 
                                 <div class="form-group">
                                     <div class="text-center col-md-12">
-                                        <button type="submit" class="btn gradient-orange-red px-4 py-2 text-uppercase white font-small-4 box-shadow-2 border-0 mt-3">Submit</button>
+                                        <input type="submit" name="submit" value="Login" class="btn gradient-orange-red px-4 py-2 text-uppercase white font-small-4 box-shadow-2 border-0 mt-3" />
                                     </div>
                                 </div>
                             </form>
