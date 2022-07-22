@@ -2870,6 +2870,12 @@ a.btn.disabled, fieldset:disabled a.btn {
           box-shadow : 0 0 0 0.2rem rgba(255, 145, 73, 0.5);
 }
 
+.btn-orange {
+  color : #FFFFFF;
+  background-color : #FF4961;
+  border-color : #FF4961;
+}
+
 .btn-danger {
   color : #FFFFFF;
   background-color : #FF4961;
@@ -9735,6 +9741,11 @@ a.text-base:hover, a.text-base:focus {
   }
 }
 
+.background-image-login {
+  background-image: url("/app-assets/img/background-login-3.png");
+  background-size: cover;
+}
+
 .gradient-indigo-light-blue {
       background-image : -webkit-linear-gradient(45deg, #C5CAE9, #B3E5FC);
       background-image : -moz- oldlinear-gradient(45deg, #C5CAE9, #B3E5FC);
@@ -10308,6 +10319,22 @@ a.text-base:hover, a.text-base:focus {
       background-image : -moz- oldlinear-gradient(45deg, #C471F3, #F671CD);
       background-image :      -o-linear-gradient(45deg, #C471F3, #F671CD);
       background-image :         linear-gradient(45deg, #C471F3, #F671CD);
+  background-repeat : repeat-x;
+}
+
+.gradient-orange-red {
+      background-image : -webkit-linear-gradient(45deg, #C91111, #FF7E00);
+      background-image : -moz- oldlinear-gradient(45deg, #C91111, #FF7E00);
+      background-image :      -o-linear-gradient(45deg, #C91111, #FF7E00);
+      background-image :         linear-gradient(45deg, #C91111, #FF7E00);
+  background-repeat : repeat-x;
+}
+
+.btn.gradient-orange-red:active, .fc button.gradient-orange-red:active, .btn.gradient-orange-red.active, .fc button.gradient-orange-red.active {
+      background-image : -webkit-linear-gradient(45deg, #C91111, #FF7E00);
+      background-image : -moz- oldlinear-gradient(45deg, #C91111, #FF7E00);
+      background-image :      -o-linear-gradient(45deg, #C91111, #FF7E00);
+      background-image :         linear-gradient(45deg, #C91111, #FF7E00);
   background-repeat : repeat-x;
 }
 
