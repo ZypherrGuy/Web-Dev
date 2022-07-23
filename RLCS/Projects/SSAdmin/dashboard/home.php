@@ -1,5 +1,25 @@
 <?php
 session_start();
+
+if (isset($_SESSION['username'])) {
+  debug_to_console("username found");
+}else{
+  debug_to_console("No username found");
+}
+
+if (isset($_SESSION['userProfilePicture'])) {
+  debug_to_console("Session Image found");
+}else{
+  debug_to_console("No Session Image found");
+}
+
+function debug_to_console($data) {
+  $output = $data;
+  if (is_array($output))
+      $output = implode(',', $output);
+  echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -275,7 +295,7 @@ session_start();
           <div class="navbar-container">
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
               <ul class="navbar-nav">
-                <li class="nav-item mt-1 navbar-search text-left dropdown"><a id="search" href="#" data-toggle="dropdown" class="nav-link dropdown-toggle"><i class="ft-search blue-grey darken-4"></i></a>
+                <!-- <li class="nav-item mt-1 navbar-search text-left dropdown"><a id="search" href="#" data-toggle="dropdown" class="nav-link dropdown-toggle"><i class="ft-search blue-grey darken-4"></i></a>
                   <div aria-labelledby="search" class="search dropdown-menu dropdown-menu-right">
                     <div class="arrow_box_right">
                       <form role="search" class="navbar-form navbar-right">
@@ -301,13 +321,19 @@ session_start();
                   </div>
                 </li>
                 <li class="nav-item mt-1 d-none d-lg-block"><a id="navbar-notification-sidebar" href="javascript:;" class="nav-link position-relative notification-sidebar-toggle"><i class="icon-equalizer blue-grey darken-4"></i>
-                    <p class="d-none">Notifications Sidebar</p></a></li>
-                <li <h2> Hello, <?php echo $_SESSION['user_name'];?> </h2></li>
-                <li class="dropdown nav-item mr-0"><a id="dropdownBasic3" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-user-link dropdown-toggle"><span class="avatar avatar-online"><img id="navbar-avatar" src="app-assets/img/portrait/small/avatar-s-3.jpg" alt="avatar"/></span>
-                    <p class="d-none">User Settings</p></a>
+                    <p class="d-none">Notifications Sidebar</p></a></li> -->
+                <li class="nav-item mt-2 d-none d-lg-block" > <?php echo "Hello, <b>" . $_SESSION['username']."</b>"; ?> </li>
+                <li class="dropdown nav-item mr-0">
+                  <a id="dropdownBasic3" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-user-link dropdown-toggle">
+                    <span class="avatar avatar-online">
+                      <img id="navbar-avatar" src = "data:image/png;base64,<?php echo base64_encode($_SESSION['userProfilePicture'])?>" alt="img" width="200" height="200" />
+                    </span>
+                    <p class="d-none">User Settings</p>
+                  </a>
                   <div aria-labelledby="dropdownBasic3" class="dropdown-menu dropdown-menu-right">
                     <div class="arrow_box_right"><a href="user-profile-page.html" class="dropdown-item py-1"><i class="ft-edit mr-2"></i><span>My Profile</span></a><a href="chat.html" class="dropdown-item py-1"><i class="ft-message-circle mr-2"></i><span>My Chat</span></a><a href="javascript:;" class="dropdown-item py-1"><i class="ft-settings mr-2"></i><span>Settings</span></a>
-                      <div class="dropdown-divider"></div><a href="javascript:;" class="dropdown-item"><i class="ft-power mr-2"></i><span>Logout</span></a>
+                      <div class="dropdown-divider"></div>
+                      <a href="logout.php" class="dropdown-item"><i class="ft-power mr-2"></i><span>Logout</span></a>
                     </div>
                   </div>
                 </li>

@@ -13,20 +13,22 @@ if(isset($_POST['userEmailAddress'])){
 	$email = $_POST['userEmailAddress'];
 	$password = $_POST['userPassword'];
 
-	$sql = "SELECT tb_users.user_id, tb_users.user_name, tb_users.user_email, tb_loginauth.user_password 
+	$sql = "SELECT *
 			FROM tb_users 
 			INNER JOIN tb_loginauth ON tb_users.user_id = tb_loginauth.user_id 
 			WHERE tb_users.user_email = '$email' AND tb_loginauth.user_password = '$password'";
 
 	$result = mysqli_query($Conn, $sql);
 	$row = mysqli_fetch_assoc($result);
+
 	$_SESSION['username'] = $row['user_name'];
+	$_SESSION['userProfilePicture'] = $row['user_image'];
 
 	if(mysqli_num_rows($result)==1){
 
 		if (isset($_SESSION['username'])) {
 			debug_to_console("Session not Empty");
-			header("Location: TestLogin.php");
+			header("Location: home.php");
 			//echo "Welcome ".$_SESSION['username'];
 		}
 		
