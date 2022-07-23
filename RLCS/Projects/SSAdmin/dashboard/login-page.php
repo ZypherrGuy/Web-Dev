@@ -27,7 +27,7 @@
     <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/perfect-scrollbar.min.css">
     <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/prism.min.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/css/main.css">
   </head>
   <body data-col="1-column" class=" 1-column  blank-page blank-page">
     <!-- ////////////////////////////////////////////////////////////////////////////-->

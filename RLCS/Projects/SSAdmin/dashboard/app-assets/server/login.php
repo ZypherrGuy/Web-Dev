@@ -23,6 +23,7 @@ if(isset($_POST['userEmailAddress'])){
 
 	$_SESSION['username'] = $row['user_name'];
 	$_SESSION['userProfilePicture'] = $row['user_image'];
+	$_SESSION['userPermissions'] = $row['user_permissions'];
 
 	if(mysqli_num_rows($result)==1){
 
