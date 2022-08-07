@@ -146,7 +146,63 @@ function debug_to_console($data) {
           <div class="content-wrapper">
             <div class="container-fluid">
               
-             
+            <div class="row">
+              <div class="col-xl-4 col-lg-6 col-md-6 col-12" style="margin-top: 20px">
+                <div class="card bg-white">
+                    <div class="card-body">
+                      <div class="card-block pt-2 pb-0">
+                        <div class="media">
+                          <div class="media-body white text-left">
+                            <h4 class="font-medium-5 card-title mb-0">231</h4>
+                            <span class="grey darken-1">Number of Players</span>
+                          </div>
+                          <div class="media-right text-right">
+                            <i class="icon-user font-large-1 primary"></i>
+                          </div>
+                        </div>
+                      </div>
+                    
+                    </div>
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-6 col-md-6 col-12" style="margin-top: 20px">
+                <div class="card bg-white">
+                    <div class="card-body">
+                      <div class="card-block pt-2 pb-0">
+                        <div class="media">
+                          <div class="media-body white text-left">
+                            <h4 class="font-medium-5 card-title mb-0">91</h4>
+                            <span class="grey darken-1">Number of Teams</span>
+                          </div>
+                          <div class="media-right text-right">
+                            <i class="icon-users font-large-1 primary"></i>
+                          </div>
+                        </div>
+                      </div>
+                    
+                    </div>
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-6 col-md-6 col-12" style="margin-top: 20px">
+                <div class="card bg-white">
+                    <div class="card-body">
+                      <div class="card-block pt-2 pb-0">
+                        <div class="media">
+                          <div class="media-body white text-left">
+                            <h4 class="font-medium-5 card-title mb-0">9</h4>
+                            <span class="grey darken-1">Number of Admins</span>
+                          </div>
+                          <div class="media-right text-right">
+                            <i class="icon-eye font-large-1 primary"></i>
+                          </div>
+                        </div>
+                      </div>
+                    
+                    </div>
+                </div>
+              </div>
+            <div>
+
               <!-- <div class="row">
                 <div class="col-xl-4 col-lg-6 col-md-6 col-12">
                   <div class="card bg-white">
