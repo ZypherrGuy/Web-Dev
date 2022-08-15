@@ -3,7 +3,6 @@
 session_start();
 include 'app-assets/server/teams.php';
 
-
 ?>
 
 <!DOCTYPE html>
@@ -12,9 +11,6 @@ include 'app-assets/server/teams.php';
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta name="description" content="Convex admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-    <meta name="keywords" content="admin template, Convex admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="PIXINVENT">
     <title>SSAdmin Dashboard</title>
     <link rel="apple-touch-icon" sizes="60x60" href="app-assets/img/ico/apple-icon-60.png">
     <link rel="apple-touch-icon" sizes="76x76" href="app-assets/img/ico/apple-icon-76.png">
@@ -33,6 +29,7 @@ include 'app-assets/server/teams.php';
     <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/prism.min.css">
     <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/chartist.min.css">
     <link rel="stylesheet" type="text/css" href="../app-assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/css/popup-form.css">
   </head>
   <body data-col="2-columns" class=" 2-columns ">
     <!-- ////////////////////////////////////////////////////////////////////////////-->
@@ -56,9 +53,9 @@ include 'app-assets/server/teams.php';
                   </li>
                 </ul>
               </li>
-              <li class="active nav-item"><a href="players.php"><i class="icon-users"></i><span data-i18n="" class="menu-title"><b>Players</b></span></a>
+              <li class="nav-item"><a href="players.php"><i class="icon-users"></i><span data-i18n="" class="menu-title"><b>Players</b></span></a>
               </li> 
-              <li class="nav-item"><a href="#"><i class="icon-grid"></i><span data-i18n="" class="menu-title"><b>Teams</b></span></a>
+              <li class="active nav-item"><a href="#"><i class="icon-grid"></i><span data-i18n="" class="menu-title"><b>Teams</b></span></a>
               </li> 
               <li class="has-sub nav-item"><a href="#"><i class="icon-social-dropbox"></i><span data-i18n="" class="menu-title"><b>Administration</b></span></a>
                 <ul class="menu-content">
@@ -113,13 +110,37 @@ include 'app-assets/server/teams.php';
         </div>
       </nav>
 
+
+      
+
       <div class="main-panel">
+        
+      <div id="popup-deleteplayer" class="popup">
+                <div class="popup-content">
+                  <div class="popup-form">
+                    <a class="popup-close">&times;</a>
+                    <form class="popup-form" action="app-assets/server/DeleteTeam.php" method="post">
+                        <div class="card-title-wrap bar-warning">
+                            <h4 class="card-title"><b>Delete Team</b></h4>
+                            <p><b> Are you sure you want to delete this Team? </b></p>
+                        </div>
+                      <div>
+                        <input class="form-control mt-3" type="text" id="fullnameDelete" name="fullnameDelete" placeholder="Full name" readonly/>
+                      </div>
+                      <button class="form-control mt-3" style="margin: auto; padding: 10px; height: 50px;" type="submit" href="/"><b>Delete Player</b></button>
+                    </form>
+                  </div>
+                </div>
+        </div>
+
+
         <div class="main-content">
           <div class="content-wrapper">
             <div class="container-fluid"><!--Extended Table starts-->
               <div class="row">
                   <div class="col-12">
-                  <input id="navbar-search" type="text" onkeyup="filterTeams()" placeholder="Search players" class="form-control"/>
+                  <input id="navbar-search" type="text" onkeyup="filterTeams()" placeholder="Search Teams" class="form-control" style="width : 90.3%; display:inline-block;margin-right:10px;"/>
+                  <button id="create-player-Btn" class="form-control mr-1 button" data-popup="popup-newplayer" type="button" style="width : 8%;display:inline-block;">New</button>
                   </div>
               </div>
               <!--Shopping cart starts-->
@@ -154,7 +175,7 @@ include 'app-assets/server/teams.php';
                                                               <td><img id="" src = "data:image/png;base64,<?php echo base64_encode($row['team_logo'])?>" alt="img" width="35px" height="35px" /></td>
                                                               <td><?php echo $row['team_name']?></td>
                                                               <td><?php echo $row['team_abreviation']?></td>
-                                                              <td>0</td>
+                                                              <td><?php getNumberofPlayers($row['team_name']) ?></td>
                                                               <td> <?php
                                                                     if(!empty($row['team_smashId']) || $row['team_smashId'] != NULL){
                                                                       echo "<a style='color: #ff5200;' href='https://www.start.gg/team/".$row['team_smashId']."'>View Profile</a>";
@@ -210,6 +231,72 @@ include 'app-assets/server/teams.php';
     <script src="app-assets/vendors/js/screenfull.min.js"></script>
     <script src="app-assets/vendors/js/pace/pace.min.js"></script>
     <script src="app-assets/javascript/filterTeams.js"></script>
+
+
+    <script>
+      let popupBtns = [...document.querySelectorAll(".button")];
+      popupBtns.forEach(function (btn) {
+        btn.onclick = function () {
+          let popup = btn.getAttribute("data-popup");
+          document.getElementById(popup).style.display = "block";
+        };
+      });
+      let closeBtns = [...document.querySelectorAll(".popup-close")];
+      closeBtns.forEach(function (btn) {
+        btn.onclick = function () {
+          let popup = btn.closest(".popup");
+          popup.style.display = "none";
+        };
+      });
+      window.onclick = function (event) {
+        if (event.target.className === "popup") {
+          event.target.style.display = "none";
+        }
+      };
+    </script>
+    
+    <script>
+      var x = document.getElementById("player-table").rows.length;
+      console.log(x-1);
+    </script>
+
+
+    <script>
+        
+        var table = document.getElementById('player-table');
+        
+        for(var i = 1; i < table.rows.length; i++)
+        {
+            table.rows[i].onclick = function()
+            {
+                ign_innerHTML = this.cells[0].innerHTML;
+                ign_processed = ign_innerHTML.split('</b>');
+                ign_array = ign_processed[0].split('<b>');
+                ign = ign_array[1];
+
+                smash_innerHTML = this.cells[2].innerHTML;
+                smash_processed = smash_innerHTML.split('">View Profile</a>');
+                smash_array = smash_processed[0].split('<a style=\"color: #ff5200;\" href=\"https://www.start.gg/user/');
+                smashId = smash_array[1];
+
+                var selectId = document.getElementById("teams-dropdownEdit");
+                selectId.value = this.cells[3].innerHTML;
+
+                document.getElementById("smashIDEdit").value = smashId;
+                document.getElementById("fullnameEdit").value = this.cells[1].innerHTML;
+                document.getElementById("fullnameDelete").value = this.cells[1].innerHTML;
+                document.getElementById("ignEdit").value = ign;
+
+                document.getElementById("discordEdit").value = this.cells[4].innerHTML;
+                document.getElementById("countryEdit").value = this.cells[5].innerHTML;   
+            };
+        }
+
+    </script>                                                     
+
+
+
+
     <!-- BEGIN VENDOR JS-->
     <!-- BEGIN PAGE VENDOR JS-->
     <!-- END PAGE VENDOR JS-->
