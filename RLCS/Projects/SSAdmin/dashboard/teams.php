@@ -115,19 +115,39 @@ include 'app-assets/server/teams.php';
 
       <div class="main-panel">
         
-      <div id="popup-deleteplayer" class="popup">
+
+      <div id="popup-editTeam" class="popup">
                 <div class="popup-content">
                   <div class="popup-form">
                     <a class="popup-close">&times;</a>
                     <form class="popup-form" action="app-assets/server/DeleteTeam.php" method="post">
                         <div class="card-title-wrap bar-warning">
-                            <h4 class="card-title"><b>Delete Team</b></h4>
-                            <p><b> Are you sure you want to delete this Team? </b></p>
+                            <h4 class="card-title"  class="margin-bottom: 20px"><b>Edit Team</b></h4>
                         </div>
                       <div>
-                        <input class="form-control mt-3" type="text" id="fullnameDelete" name="fullnameDelete" placeholder="Full name" readonly/>
+                        <input class="form-control mt-3" type="text" id="teamNameEdit" name="teamNameEdit" />
+                        <input class="form-control mt-3" type="text" id="teamTagEdit" name="teamTagEdit" />
+                        <input class="form-control mt-3" type="text" id="teamSmashIDEdit" name="teamSmashIDEdit" />
                       </div>
-                      <button class="form-control mt-3" style="margin: auto; padding: 10px; height: 50px;" type="submit" href="/"><b>Delete Player</b></button>
+                      <button class="form-control mt-3" style="margin: auto; padding: 10px; height: 50px;" type="submit" href="/" id="EditTeamBtn"><b>Edit Team</b></button>
+                    </form>
+                  </div>
+                </div>
+        </div>
+
+      <div id="popup-deleteTeam" class="popup">
+                <div class="popup-content">
+                  <div class="popup-form">
+                    <a class="popup-close">&times;</a>
+                    <form class="popup-form" action="app-assets/server/DeleteTeam.php" method="post">
+                        <div class="card-title-wrap bar-warning">
+                            <h4 class="card-title"  class="margin-bottom: 20px"><b>Delete Team</b></h4>
+                            <Div id="DeleteTeamHeader" style="font-weight: Bold"> </div>
+                        </div>
+                      <div>
+                        <input class="form-control mt-3" type="text" id="teamNameDelete" name="teamNameDelete" placeholder="Full name" readonly/>
+                      </div>
+                      <button class="form-control mt-3" style="margin: auto; padding: 10px; height: 50px;" type="submit" href="/" id="DeleteTeamBtn"><b>Delete Team</b></button>
                     </form>
                   </div>
                 </div>
@@ -191,8 +211,8 @@ include 'app-assets/server/teams.php';
                                                                   <div aria-labelledby="dropdownBasic3" class="dropdown-menu dropdown-menu-right">
                                                                     <div class="arrow_box_right">
                                                                       
-                                                                    <button id="edit-player-Btn" class="form-control mr-1 button" data-popup="popup-editplayer" type="button" style="border : 0px solid #CED4DA; text-align:left;"><i class="ft-edit mr-2" ></i>Edit</button>
-                                                                    <button id="edit-player-Btn" class="form-control mr-1 button" data-popup="popup-deleteplayer" type="button" style="border : 0px solid #CED4DA;text-align:left;"><i class="ft-delete mr-2" ></i>Delete</button>
+                                                                    <button id="edit-team-Btn" class="form-control mr-1 button" data-popup="popup-editTeam" type="button" style="border : 0px solid #CED4DA; text-align:left;"><i class="ft-edit mr-2" ></i>Edit</button>
+                                                                    <button id="delete-team-Btn" class="form-control mr-1 button" data-popup="popup-deleteTeam" type="button" style="border : 0px solid #CED4DA;text-align:left;"><i class="ft-delete mr-2" ></i>Delete</button>
 
                                                                       
                                                                     </div>
@@ -218,10 +238,7 @@ include 'app-assets/server/teams.php';
         </div>
       </div>
     </div>
-    <!-- ////////////////////////////////////////////////////////////////////////////-->
 
- 
-    <!-- BEGIN VENDOR JS-->
     <script src="app-assets/vendors/js/core/jquery-3.3.1.min.js"></script>
     <script src="app-assets/vendors/js/core/popper.min.js"></script>
     <script src="app-assets/vendors/js/core/bootstrap.min.js"></script>
@@ -231,8 +248,7 @@ include 'app-assets/server/teams.php';
     <script src="app-assets/vendors/js/screenfull.min.js"></script>
     <script src="app-assets/vendors/js/pace/pace.min.js"></script>
     <script src="app-assets/javascript/filterTeams.js"></script>
-
-
+   
     <script>
       let popupBtns = [...document.querySelectorAll(".button")];
       popupBtns.forEach(function (btn) {
@@ -256,55 +272,70 @@ include 'app-assets/server/teams.php';
     </script>
     
     <script>
-      var x = document.getElementById("player-table").rows.length;
+      var x = document.getElementById("team-table").rows.length;
       console.log(x-1);
     </script>
 
 
     <script>
-        
-        var table = document.getElementById('player-table');
-        
+        var table = document.getElementById('team-table');
+
+        function createPElement(text){
+          var message = document.createElement("p");
+          message.id = "CheckForPlayersMessage";
+          message.innerText = text;
+          document.getElementById("DeleteTeamHeader").appendChild(message);
+        }
+
         for(var i = 1; i < table.rows.length; i++)
         {
             table.rows[i].onclick = function()
             {
-                ign_innerHTML = this.cells[0].innerHTML;
-                ign_processed = ign_innerHTML.split('</b>');
-                ign_array = ign_processed[0].split('<b>');
-                ign = ign_array[1];
 
-                smash_innerHTML = this.cells[2].innerHTML;
-                smash_processed = smash_innerHTML.split('">View Profile</a>');
-                smash_array = smash_processed[0].split('<a style=\"color: #ff5200;\" href=\"https://www.start.gg/user/');
-                smashId = smash_array[1];
+              var teamLogo = this.cells[0].innerHTML;
+              var teamName = this.cells[1].innerHTML;
+              var teamTag = this.cells[2].innerHTML;
+              var NoOfPlayers = this.cells[3].innerHTML;
+             
+              smash_innerHTML = this.cells[4].innerHTML;
+              smash_processed = smash_innerHTML.split('">View Profile</a>');
+              smash_array = smash_processed[0].split('<a style=\"color: #ff5200;\" href=\"https://www.start.gg/team/');
+              smashId = smash_array[1];
 
-                var selectId = document.getElementById("teams-dropdownEdit");
-                selectId.value = this.cells[3].innerHTML;
+              document.getElementById("teamNameDelete").value = this.cells[1].innerHTML;
 
-                document.getElementById("smashIDEdit").value = smashId;
-                document.getElementById("fullnameEdit").value = this.cells[1].innerHTML;
-                document.getElementById("fullnameDelete").value = this.cells[1].innerHTML;
-                document.getElementById("ignEdit").value = ign;
+              document.getElementById("teamNameEdit").value = this.cells[1].innerHTML;
+              document.getElementById("teamTagEdit").value = this.cells[2].innerHTML;
+              document.getElementById("teamSmashIDEdit").value = smashId;
 
-                document.getElementById("discordEdit").value = this.cells[4].innerHTML;
-                document.getElementById("countryEdit").value = this.cells[5].innerHTML;   
-            };
+              if(this.cells[3].innerHTML != 0){
+                if(document.getElementById("CheckForPlayersMessage")){
+                  document.getElementById("CheckForPlayersMessage").remove();
+                  createPElement("Unable to delete Team! This team has " + this.cells[3].innerHTML + " players assigned to it.");
+                  document.getElementById('DeleteTeamBtn').classList.add("disabledBtn"); ;
+                  document.getElementById('DeleteTeamBtn').disabled = true;
+                }else{
+                  createPElement("Unable to Delete - This team has " + this.cells[3].innerHTML + " players assigned to it.");
+                  document.getElementById('DeleteTeamBtn').classList.add("disabledBtn"); ;
+                  document.getElementById('DeleteTeamBtn').disabled = true;
+                }
+              }else{
+                if(document.getElementById("CheckForPlayersMessage")){
+                  document.getElementById("CheckForPlayersMessage").remove();
+                  createPElement("Are you sure you want to delete this team?");
+                  document.getElementById('DeleteTeamBtn').disabled = false;
+                }else{
+                  createPElement("Are you sure you want to delete this team?");
+                  document.getElementById('DeleteTeamBtn').disabled = false;
+                }
+              };
+            }
         }
 
     </script>                                                     
 
-
-
-
-    <!-- BEGIN VENDOR JS-->
-    <!-- BEGIN PAGE VENDOR JS-->
-    <!-- END PAGE VENDOR JS-->
-    <!-- BEGIN CONVEX JS-->
     <script src="app-assets/js/app-sidebar.js"></script>
     <script src="app-assets/js/notification-sidebar.js"></script>
-    <!-- END CONVEX JS-->
-    <!-- BEGIN PAGE LEVEL JS-->
-    <!-- END PAGE LEVEL JS-->
+ 
   </body>
 </html>
