@@ -870,11 +870,11 @@ include 'app-assets/server/Dashboard.php';
                       <div class="card-block pt-2 pb-0">
                         <div class="media">
                           <div class="media-body white text-left">
-                            <h4 class="font-medium-5 card-title mb-0">Snowwy</h4>
+                            <h4 class="font-medium-1 card-title mb-0">Snowwy</h4>
                             <span class="grey darken-1">Top Season Demos</span>
                           </div>
                           <div class="media-right text-right">
-                          <h4 class="font-medium-5 card-title mb-0"><?php getTotalPlayers() ?></h4>
+                          <h4 class="font-medium-1 card-title mb-0"><?php getTotalPlayers() ?></h4>
                           </div>
                         </div>
                       </div>
@@ -888,11 +888,11 @@ include 'app-assets/server/Dashboard.php';
                       <div class="card-block pt-2 pb-0">
                         <div class="media">
                           <div class="media-body white text-left">
-                            <h4 class="font-medium-5 card-title mb-0">Skillsteal</h4>
+                            <h4 class="font-medium-1 card-title mb-0">Skillsteal</h4>
                             <span class="grey darken-1">Top Season Goals</span>
                           </div>
                           <div class="media-right text-right">
-                          <h4 class="font-medium-5 card-title mb-0"><?php getTotalPlayers() ?></h4>
+                          <h4 class="font-medium-1 card-title mb-0"><?php getTotalPlayers() ?></h4>
                           </div>
                         </div>
                       </div>
@@ -906,11 +906,11 @@ include 'app-assets/server/Dashboard.php';
                       <div class="card-block pt-2 pb-0">
                         <div class="media">
                           <div class="media-body white text-left">
-                            <h4 class="font-medium-5 card-title mb-0">Snowwy</h4>
+                            <h4 class="font-medium-1 card-title mb-0">Snowwy</h4>
                             <span class="grey darken-1">Top Season Demos</span>
                           </div>
                           <div class="media-right text-right">
-                          <h4 class="font-medium-5 card-title mb-0"><?php getTotalPlayers() ?></h4>
+                          <h4 class="font-medium-1 card-title mb-0"><?php getTotalPlayers() ?></h4>
                           </div>
                         </div>
                       </div>
@@ -924,11 +924,11 @@ include 'app-assets/server/Dashboard.php';
                       <div class="card-block pt-2 pb-0">
                         <div class="media">
                           <div class="media-body white text-left">
-                            <h4 class="font-medium-5 card-title mb-0">Snowwy</h4>
+                            <h4 class="font-medium-1 card-title mb-0">Snowwy</h4>
                             <span class="grey darken-1">Top Season Saves</span>
                           </div>
                           <div class="media-right text-right">
-                          <h4 class="font-medium-5 card-title mb-0"><?php getTotalPlayers() ?></h4>
+                          <h4 class="font-medium-1 card-title mb-0"><?php getTotalPlayers() ?></h4>
                           </div>
                         </div>
                       </div>
@@ -942,11 +942,11 @@ include 'app-assets/server/Dashboard.php';
                       <div class="card-block pt-2 pb-0">
                         <div class="media">
                           <div class="media-body white text-left">
-                            <h4 class="font-medium-5 card-title mb-0">Happymeal</h4>
+                            <h4 class="font-medium-1 card-title mb-0">Happymeal</h4>
                             <span class="grey darken-1">Top Season Assists</span>
                           </div>
                           <div class="media-right text-right">
-                          <h4 class="font-medium-5 card-title mb-0"><?php getTotalPlayers() ?></h4>
+                          <h4 class="font-medium-1 card-title mb-0"><?php getTotalPlayers() ?></h4>
                           </div>
                         </div>
                       </div>
@@ -960,11 +960,11 @@ include 'app-assets/server/Dashboard.php';
                       <div class="card-block pt-2 pb-0">
                         <div class="media">
                           <div class="media-body white text-left">
-                            <h4 class="font-medium-5 card-title mb-0">Mr.Low</h4>
-                            <span class="grey darken-1">Most Overtime Played</span>
+                            <h4 class="font-medium-1 card-title mb-0">Mr.Low</h4>
+                            <span class="grey darken-1">Overtime</span>
                           </div>
                           <div class="media-right text-right">
-                          <h4 class="font-medium-5 card-title mb-0">30:34</h4>
+                          <h4 class="font-medium-1 card-title mb-0">30:34</h4>
                           </div>
                         </div>
                       </div>
