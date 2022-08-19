@@ -116,18 +116,38 @@ include 'app-assets/server/teams.php';
       <div class="main-panel">
         
 
+      <div id="popup-newTeam" class="popup">
+                <div class="popup-content">
+                  <div class="popup-form">
+                    <a class="popup-close">&times;</a>
+                    <form class="popup-form" action="app-assets/server/CreateNewTeam.php" method="post" enctype="multipart/form-data">
+                        <div class="card-title-wrap bar-warning">
+                            <h4 class="card-title"  class="margin-bottom: 20px"><b>New Team</b></h4>
+                        </div>
+                      <div>
+                        <input class="form-control mt-3" type="text" id="teamSmashIDNew" name="teamSmashIDNew" placeholder="Smash Profile ID" />
+                        <input class="form-control mt-3" type="text" id="teamNameNew" name="teamNameNew" placeholder="Team Name" />
+                        <input class="form-control mt-3" type="text" id="teamTagNew" name="teamTagNew" placeholder="Team Tag" />
+                        <input class="mt-3" type="file" id="teamLogoNew" name="teamLogoNew">
+                      </div>
+                      <button class="form-control mt-3" style="margin: auto; padding: 10px; height: 50px;" type="submit" href="/" id="EditTeamBtn"><b>Create New Team</b></button>
+                    </form>
+                  </div>
+                </div>
+        </div>
+
       <div id="popup-editTeam" class="popup">
                 <div class="popup-content">
                   <div class="popup-form">
                     <a class="popup-close">&times;</a>
-                    <form class="popup-form" action="app-assets/server/DeleteTeam.php" method="post">
+                    <form class="popup-form" action="app-assets/server/EditTeam.php" method="post">
                         <div class="card-title-wrap bar-warning">
                             <h4 class="card-title"  class="margin-bottom: 20px"><b>Edit Team</b></h4>
                         </div>
                       <div>
+                        <input class="form-control mt-3" type="text" id="teamSmashIDEdit" name="teamSmashIDEdit" readonly/>
                         <input class="form-control mt-3" type="text" id="teamNameEdit" name="teamNameEdit" />
                         <input class="form-control mt-3" type="text" id="teamTagEdit" name="teamTagEdit" />
-                        <input class="form-control mt-3" type="text" id="teamSmashIDEdit" name="teamSmashIDEdit" />
                       </div>
                       <button class="form-control mt-3" style="margin: auto; padding: 10px; height: 50px;" type="submit" href="/" id="EditTeamBtn"><b>Edit Team</b></button>
                     </form>
@@ -160,7 +180,7 @@ include 'app-assets/server/teams.php';
               <div class="row">
                   <div class="col-12">
                   <input id="navbar-search" type="text" onkeyup="filterTeams()" placeholder="Search Teams" class="form-control" style="width : 90.3%; display:inline-block;margin-right:10px;"/>
-                  <button id="create-player-Btn" class="form-control mr-1 button" data-popup="popup-newplayer" type="button" style="width : 8%;display:inline-block;">New</button>
+                  <button id="create-player-Btn" class="form-control mr-1 button" data-popup="popup-newTeam" type="button" style="width : 8%;display:inline-block;">New</button>
                   </div>
               </div>
               <!--Shopping cart starts-->

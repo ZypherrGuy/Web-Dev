@@ -1,40 +1,133 @@
 <?php
 session_start();
+include 'app-assets/server/Dashboard.php';
 
-if (isset($_SESSION['username'])) {
-  debug_to_console("username found");
-}else{
-  debug_to_console("No username found");
-}
+// if (isset($_SESSION['username'])) {
+//   debug_to_console("username found");
+// }else{
+//   debug_to_console("No username found");
+// }
 
-if (isset($_SESSION['userProfilePicture'])) {
-  debug_to_console("Session Image found");
-}else{
-  debug_to_console("No Session Image found");
-}
+// if (isset($_SESSION['userProfilePicture'])) {
+//   debug_to_console("Session Image found");
+// }else{
+//   debug_to_console("No Session Image found");
+// }
 
-if (isset($_SESSION['userProfilePicture'])) {
-  debug_to_console("Session Permissions found");
-  if($_SESSION['userPermissions'] == 1){
-    debug_to_console("Session Permissions 1");
-  }else{
-    debug_to_console($_SESSION['userPermissions']);
-  }
-}else{
-  debug_to_console("No Session Image found");
-}
+// if (isset($_SESSION['userProfilePicture'])) {
+//   debug_to_console("Session Permissions found");
+//   if($_SESSION['userPermissions'] == 1){
+//     debug_to_console("Session Permissions 1");
+//   }else{
+//     debug_to_console($_SESSION['userPermissions']);
+//   }
+// }else{
+//   debug_to_console("No Session Image found");
+// }
 
-function debug_to_console($data) {
-  $output = $data;
-  if (is_array($output))
-      $output = implode(',', $output);
-  echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
-}
+// function debug_to_console($data) {
+//   $output = $data;
+//   if (is_array($output))
+//       $output = implode(',', $output);
+//   echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+// }
+
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en" class="loading">
+
+<style>
+
+/* Style the tab */
+.tabFilter {
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tabFilter button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tabFilter button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tabFilter button.active {
+  background: -webkit-linear-gradient(45deg, #C91111, #FF7E00);
+    background : -moz- oldlinear-gradient(45deg, #C91111, #FF7E00);
+    background :      -o-linear-gradient(45deg, #C91111, #FF7E00);
+    background :         linear-gradient(45deg, #C91111, #FF7E00);
+    background-repeat : repeat-x;
+    color : #FFFFFF !important;
+    padding-left : 14px;
+    -webkit-box-shadow : 0 6px 14px 2px rgba(0, 0, 0, 0.2);
+            box-shadow : 0 6px 14px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the tab content */
+.tabcontentFilter {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+}
+
+/* Style the tab */
+.tabFilterTeamPlacement {
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tabFilterTeamPlacement button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tabFilterTeamPlacement button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tabFilterTeamPlacement button.active {
+  background: -webkit-linear-gradient(45deg, #C91111, #FF7E00);
+    background : -moz- oldlinear-gradient(45deg, #C91111, #FF7E00);
+    background :      -o-linear-gradient(45deg, #C91111, #FF7E00);
+    background :         linear-gradient(45deg, #C91111, #FF7E00);
+    background-repeat : repeat-x;
+    color : #FFFFFF !important;
+    padding-left : 14px;
+    -webkit-box-shadow : 0 6px 14px 2px rgba(0, 0, 0, 0.2);
+            box-shadow : 0 6px 14px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the tab content */
+.tabcontentFilterTeamPlacement {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+}
+
+</style>
+
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -145,15 +238,16 @@ function debug_to_console($data) {
         <div class="main-content">
           <div class="content-wrapper">
             <div class="container-fluid">
-              
+            
+            <!-- ROW 1 -->
             <div class="row">
-              <div class="col-xl-4 col-lg-6 col-md-6 col-12" style="margin-top: 20px">
+              <div class="col-xl-4 col-lg-6 col-md-6 col-12" >
                 <div class="card bg-white">
                     <div class="card-body">
                       <div class="card-block pt-2 pb-0">
                         <div class="media">
                           <div class="media-body white text-left">
-                            <h4 class="font-medium-5 card-title mb-0">231</h4>
+                            <h4 class="font-medium-5 card-title mb-0"><?php getTotalPlayers() ?></h4>
                             <span class="grey darken-1">Number of Players</span>
                           </div>
                           <div class="media-right text-right">
@@ -165,13 +259,13 @@ function debug_to_console($data) {
                     </div>
                 </div>
               </div>
-              <div class="col-xl-4 col-lg-6 col-md-6 col-12" style="margin-top: 20px">
+              <div class="col-xl-4 col-lg-6 col-md-6 col-12">
                 <div class="card bg-white">
                     <div class="card-body">
                       <div class="card-block pt-2 pb-0">
                         <div class="media">
                           <div class="media-body white text-left">
-                            <h4 class="font-medium-5 card-title mb-0">91</h4>
+                            <h4 class="font-medium-5 card-title mb-0"><?php getTotalTeams() ?></h4>
                             <span class="grey darken-1">Number of Teams</span>
                           </div>
                           <div class="media-right text-right">
@@ -183,13 +277,13 @@ function debug_to_console($data) {
                     </div>
                 </div>
               </div>
-              <div class="col-xl-4 col-lg-6 col-md-6 col-12" style="margin-top: 20px">
+              <div class="col-xl-4 col-lg-6 col-md-6 col-12" >
                 <div class="card bg-white">
                     <div class="card-body">
                       <div class="card-block pt-2 pb-0">
                         <div class="media">
                           <div class="media-body white text-left">
-                            <h4 class="font-medium-5 card-title mb-0">9</h4>
+                            <h4 class="font-medium-5 card-title mb-0"><?php getTotalAdmins() ?></h4>
                             <span class="grey darken-1">Number of Admins</span>
                           </div>
                           <div class="media-right text-right">
@@ -203,104 +297,689 @@ function debug_to_console($data) {
               </div>
             </div>
             
-             
-          
+          <!-- ROW 2 -->
+            <div class="row">
+              <div class="col-xl-6 col-lg-12">
+                <div class="card bg-white">
+                    <div class="card-body">
+                      <div class="card-block pt-2 pb-0">
+                        <div class="media">
+                          <div class="media-body white text-left">
+                            <h4 class="font-medium-5 card-title mb-0"><?php getTotalTeamlessPlayers() ?></h4>
+                            <span class="grey darken-1">Number of Unassigned Players</span>
+                          </div>
+                          <div class="media-right text-right">
+                            <i class="icon-users font-large-1 primary"></i>
+                          </div>
+                        </div>
+                      </div>
+                    
+                    </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-12">
+                <div class="card bg-white">
+                    <div class="card-body">
+                      <div class="card-block pt-2 pb-0">
+                        <div class="media">
+                          <div class="media-body white text-left">
+                            <h4 class="font-medium-5 card-title mb-0"><?php getTotalIncompleteTeams() ?></h4>
+                            <span class="grey darken-1">Number of Incomplete Teams</span>
+                          </div>
+                          <div class="media-right text-right">
+                            <i class="icon-eye font-large-1 primary"></i>
+                          </div>
+                        </div>
+                      </div>
+                    
+                    </div>
+                </div>
+              </div>
+            </div>
 
+             <!-- ROW 3 -->
+             <div class="row match-height">
+                <div class="col-xl-4 col-lg-12 col-12">
+                <div class="card">
+                    <div class="card-header">
+                      <div class="card-title-wrap bar-primary">
+                        <h4 class="card-title">Admin Game Tracking</h4>
+                      </div>
+                      
+                      <a class="heading-elements-toggle">
+                        <i class="la la-ellipsis-v font-medium-3"></i>
+                      </a>
+                    </div>
+                    <div class="card-content mt-1">
+                      <div class="tabFilter">
+                        <button class="tablinks active" onclick="getSeasonSplit(event, 'All')">All</button>
+                        <button class="tablinks" onclick="getSeasonSplit(event, 'Summer')">Summer Split</button>
+                        <button class="tablinks" onclick="getSeasonSplit(event, 'Winter')">Winter Split</button>
+                        <button class="tablinks" onclick="getSeasonSplit(event, 'Spring')">Spring Split</button>
+                      </div>
+
+                      <div id="All" class="tabcontentFilter" style="display: block;">
+                        <div class="table-responsive">
+                          <table class="table table-hover table-xl mb-0" id="recent-orders">
+                            <thead>
+                              <tr>
+                                <th class="border-top-0">No.</th>
+                                <th class="border-top-0">Admin</th>
+                                <th class="border-top-0" style="width: 35%">Games Admined</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="text-truncate">1</td>
+                                <td class="text-truncate">Joshua Bot</td>
+                                <td class="text-truncate">1234</td>
+                              </tr>
+                              <tr>
+                                <td class="text-truncate">2</td>
+                                <td class="text-truncate">Jason Cloete</td>
+                                <td class="text-truncate">123</td>
+                              </tr>
+                              <tr>
+                                <td class="text-truncate">3</td>
+                                <td class="text-truncate">Kyle Slater</td>
+                                <td class="text-truncate">12</td>
+                              </tr>
+                              <tr>
+                              <td class="text-truncate">4</td>
+                              <td class="text-truncate">Dylan Buckle</td>
+                              <td class="text-truncate">75</td>
+                            </tr>
+                            <tr>
+                              <td class="text-truncate">5</td>
+                              <td class="text-truncate">Ethan Kruger</td>
+                              <td class="text-truncate">75</td>
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+                      <div id="Summer" class="tabcontentFilter">
+                      <div class="table-responsive">
+                        <table class="table table-hover table-xl mb-0" id="recent-orders">
+                          <thead>
+                            <tr>
+                              <th class="border-top-0">No.</th>
+                              <th class="border-top-0">Admin</th>
+                              <th class="border-top-0" style="width: 35%">Games Admined</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="text-truncate">1</td>
+                              <td class="text-truncate">Joshua Bot</td>
+                              <td class="text-truncate">12</td>
+                            </tr>
+                            <tr>
+                              <td class="text-truncate">2</td>
+                              <td class="text-truncate">Jason Cloete</td>
+                              <td class="text-truncate">2</td>
+                            </tr>
+                            <tr>
+                              <td class="text-truncate">3</td>
+                              <td class="text-truncate">Kyle Slater</td>
+                              <td class="text-truncate">3</td>
+                            </tr>
+                            <tr>
+                              <td class="text-truncate">4</td>
+                              <td class="text-truncate">Dylan Buckle</td>
+                              <td class="text-truncate">75</td>
+                            </tr>
+                            <tr>
+                              <td class="text-truncate">5</td>
+                              <td class="text-truncate">Ethan Kruger</td>
+                              <td class="text-truncate">75</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      </div>
+
+                      <div id="Winter" class="tabcontentFilter">
+                      <div class="table-responsive">
+                        <table class="table table-hover table-xl mb-0" id="recent-orders">
+                          <thead>
+                            <tr>
+                              <th class="border-top-0">No.</th>
+                              <th class="border-top-0">Admin</th>
+                              <th class="border-top-0" style="width: 35%">Games Admined</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                              <td class="text-truncate">1</td>
+                              <td class="text-truncate">Joshua Bot</td>
+                              <td class="text-truncate">35</td>
+                            </tr>
+                            <tr>
+                              <td class="text-truncate">2</td>
+                              <td class="text-truncate">Jason Cloete</td>
+                              <td class="text-truncate">22</td>
+                            </tr>
+                            <tr>
+                              <td class="text-truncate">3</td>
+                              <td class="text-truncate">Kyle Slater</td>
+                              <td class="text-truncate">24</td>
+                            </tr>
+                            <tr>
+                              <td class="text-truncate">4</td>
+                              <td class="text-truncate">Dylan Buckle</td>
+                              <td class="text-truncate">75</td>
+                            </tr>
+                            <tr>
+                              <td class="text-truncate">5</td>
+                              <td class="text-truncate">Ethan Kruger</td>
+                              <td class="text-truncate">75</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      </div>
+
+                      <div id="Spring" class="tabcontentFilter">
+                      <div class="table-responsive">
+                        <table class="table table-hover table-xl mb-0" id="recent-orders">
+                          <thead>
+                            <tr>
+                              <th class="border-top-0">No.</th>
+                              <th class="border-top-0">Admin</th>
+                              <th class="border-top-0" style="width: 35%">Games Admined</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                              <td class="text-truncate">1</td>
+                              <td class="text-truncate">Joshua Bot</td>
+                              <td class="text-truncate">2300</td>
+                            </tr>
+                            <tr>
+                              <td class="text-truncate">2</td>
+                              <td class="text-truncate">Jason Cloete</td>
+                              <td class="text-truncate">200</td>
+                            </tr>
+                            <tr>
+                              <td class="text-truncate">3</td>
+                              <td class="text-truncate">Kyle Slater</td>
+                              <td class="text-truncate">75</td>
+                            </tr>
+                            <tr>
+                              <td class="text-truncate">4</td>
+                              <td class="text-truncate">Dylan Buckle</td>
+                              <td class="text-truncate">75</td>
+                            </tr>
+                            <tr>
+                              <td class="text-truncate">5</td>
+                              <td class="text-truncate">Ethan Kruger</td>
+                              <td class="text-truncate">75</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      </div>
+
+                     
+                
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-8" id="recent-sales">
+                  <div class="card">
+                    <div class="card-header">
+                      <div class="card-title-wrap bar-primary">
+                        <h4 class="card-title">Team Ranking</h4>
+                      </div>
+                      <a class="heading-elements-toggle">
+                        <i class="la la-ellipsis-v font-medium-3"></i>
+                      </a>
+                    </div>
+                    <div class="card-content mt-1">
+                      <div class="tabFilterTeamPlacement">
+                        <button class="tablinksTeamPlacement active" onclick="getSeasonSplitForTeamPlacement(event, 'AllT')">All</button>
+                        <button class="tablinksTeamPlacement" onclick="getSeasonSplitForTeamPlacement(event, 'SummerT')">Summer Split</button>
+                        <button class="tablinksTeamPlacement" onclick="getSeasonSplitForTeamPlacement(event, 'WinterT')">Winter Split</button>
+                        <button class="tablinksTeamPlacement" onclick="getSeasonSplitForTeamPlacement(event, 'SpringT')">Spring Split</button>
+                      </div>
+
+                      <div id="AllT" class="tabcontentFilterTeamPlacement" style="display: block;">
+                        <div class="table-responsive">
+                          <table class="table table-hover table-xl mb-0" id="recent-orders">
+                              <thead>
+                                <tr>
+                                  <th class="border-top-0">Placement</th>
+                                  <th class="border-top-0">Team</th>
+                                  <th class="border-top-0">Games</th>
+                                  <th class="border-top-0">Wins</th>
+                                  <th class="border-top-0">Losses</th>
+                                  <th class="border-top-0">Points</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td class="text-truncate">2</td>
+                                  <td class="text-truncate">Orlando Pirates</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">0</td>
+                                  <td class="text-truncate">50</td>
+                                </tr>
+                                <tr>
+                                  <td class="text-truncate">3</td>
+                                  <td class="text-truncate">Orlando Pirates</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">0</td>
+                                  <td class="text-truncate">50</td>
+                                </tr>
+                                <tr>
+                                  <td class="text-truncate">4</td>
+                                  <td class="text-truncate">Orlando Pirates</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">0</td>
+                                  <td class="text-truncate">50</td>
+                                </tr>
+                                <tr>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">Orlando Pirates</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">0</td>
+                                  <td class="text-truncate">50</td>
+                                </tr>
+                                <tr>
+                                  <td class="text-truncate">1</td>
+                                  <td class="text-truncate">Orlando Pirates</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">0</td>
+                                  <td class="text-truncate">50</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+
+                        <div id="SummerT" class="tabcontentFilterTeamPlacement">
+                        <div class="table-responsive">
+                          <table class="table table-hover table-xl mb-0" id="recent-orders">
+                              <thead>
+                                <tr>
+                                  <th class="border-top-0">Placement</th>
+                                  <th class="border-top-0">Team</th>
+                                  <th class="border-top-0">Games</th>
+                                  <th class="border-top-0">Wins</th>
+                                  <th class="border-top-0">Losses</th>
+                                  <th class="border-top-0">Points</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td class="text-truncate">2</td>
+                                  <td class="text-truncate">Orlando Pirates</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">0</td>
+                                  <td class="text-truncate">50</td>
+                                </tr>
+                                <tr>
+                                  <td class="text-truncate">3</td>
+                                  <td class="text-truncate">Orlando Pirates</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">0</td>
+                                  <td class="text-truncate">50</td>
+                                </tr>
+                                <tr>
+                                  <td class="text-truncate">4</td>
+                                  <td class="text-truncate">Orlando Pirates</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">0</td>
+                                  <td class="text-truncate">50</td>
+                                </tr>
+                                <tr>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">Orlando Pirates</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">0</td>
+                                  <td class="text-truncate">50</td>
+                                </tr>
+                                <tr>
+                                  <td class="text-truncate">1</td>
+                                  <td class="text-truncate">Orlando Pirates</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">0</td>
+                                  <td class="text-truncate">50</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+
+                        <div id="WinterT" class="tabcontentFilterTeamPlacement">
+                        <div class="table-responsive">
+                          <table class="table table-hover table-xl mb-0" id="recent-orders">
+                              <thead>
+                                <tr>
+                                  <th class="border-top-0">Placement</th>
+                                  <th class="border-top-0">Team</th>
+                                  <th class="border-top-0">Games</th>
+                                  <th class="border-top-0">Wins</th>
+                                  <th class="border-top-0">Losses</th>
+                                  <th class="border-top-0">Points</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td class="text-truncate">2</td>
+                                  <td class="text-truncate">Orlando Pirates</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">0</td>
+                                  <td class="text-truncate">50</td>
+                                </tr>
+                                <tr>
+                                  <td class="text-truncate">3</td>
+                                  <td class="text-truncate">Orlando Pirates</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">0</td>
+                                  <td class="text-truncate">50</td>
+                                </tr>
+                                <tr>
+                                  <td class="text-truncate">4</td>
+                                  <td class="text-truncate">Orlando Pirates</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">0</td>
+                                  <td class="text-truncate">50</td>
+                                </tr>
+                                <tr>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">Orlando Pirates</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">0</td>
+                                  <td class="text-truncate">50</td>
+                                </tr>
+                                <tr>
+                                  <td class="text-truncate">1</td>
+                                  <td class="text-truncate">Orlando Pirates</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">0</td>
+                                  <td class="text-truncate">50</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+
+                        <div id="SpringT" class="tabcontentFilterTeamPlacement">
+                        <div class="table-responsive">
+                          <table class="table table-hover table-xl mb-0" id="recent-orders">
+                              <thead>
+                                <tr>
+                                  <th class="border-top-0">Placement</th>
+                                  <th class="border-top-0">Team</th>
+                                  <th class="border-top-0">Games</th>
+                                  <th class="border-top-0">Wins</th>
+                                  <th class="border-top-0">Losses</th>
+                                  <th class="border-top-0">Points</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td class="text-truncate">2</td>
+                                  <td class="text-truncate">Orlando Pirates</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">0</td>
+                                  <td class="text-truncate">50</td>
+                                </tr>
+                                <tr>
+                                  <td class="text-truncate">3</td>
+                                  <td class="text-truncate">Orlando Pirates</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">0</td>
+                                  <td class="text-truncate">50</td>
+                                </tr>
+                                <tr>
+                                  <td class="text-truncate">4</td>
+                                  <td class="text-truncate">Orlando Pirates</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">0</td>
+                                  <td class="text-truncate">50</td>
+                                </tr>
+                                <tr>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">Orlando Pirates</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">0</td>
+                                  <td class="text-truncate">50</td>
+                                </tr>
+                                <tr>
+                                  <td class="text-truncate">1</td>
+                                  <td class="text-truncate">Orlando Pirates</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">5</td>
+                                  <td class="text-truncate">0</td>
+                                  <td class="text-truncate">50</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>  
+
+            </div>
+
+            <!-- ROW 4-->
               <div class="row match-height">
-                <div class="col-xl-6 col-lg-12">
+                <div class="col-lg-12">
                   <div class="card">
                     <div class="card-header">
                           <div class="card-title-wrap bar-primary">
-                        <h4 class="card-title">Player Regions</h4>
+                        <h4 class="card-title">Player Locations</h4>
                       </div>
                     </div>
                     <div class="card-body">
-
-                      <div id="bar-chart" class="height-250 BarChartShadow BarChart">					
-                      </div>
-
                       <div class="card-block">
                         <div class="row">
                           <div class="col text-center">
                             <span class="gradient-pomegranate d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
-                            <span class="font-large-1 d-block mb-2">48</span>
-                            <span>Sport</span>
+                            <span class="font-large-1 d-block mb-2"><?php GetPlayerNumbersByCountry("South Africa"); ?></span>
+                            <span>South Africa</span>
                           </div>
                           <div class="col text-center">
                             <span class="gradient-green-tea d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
-                            <span class="font-large-1 d-block mb-2">9</span>
-                            <span>Music</span>
+                            <span class="font-large-1 d-block mb-2"><?php GetPlayerNumbersByCountry("Réunion"); ?></span>
+                            <span>Réunion</span>
                           </div>
                           <div class="col text-center">
                             <span class="gradient-blackberry d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
-                            <span class="font-large-1 d-block mb-2">26</span>
-                            <span>Travel</span>
+                            <span class="font-large-1 d-block mb-2"><?php GetPlayerNumbersByCountry("Madagascar"); ?></span>
+                            <span>Madagascar</span>
                           </div>
                           <div class="col text-center">
                             <span class="gradient-ibiza-sunset d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
-                            <span class="font-large-1 d-block mb-2">17</span>
-                            <span>News</span>
+                            <span class="font-large-1 d-block mb-2"><?php GetPlayerNumbersByCountry("Mozambique"); ?></span>
+                            <span>Mozambique</span>
                           </div>
-                                <div class="col text-center">
-                                  <span class="gradient-back-to-earth d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
-                                  <span class="font-large-1 d-block mb-2">52</span>
-                                  <span>Blog</span>
-                                </div>
+                          <div class="col text-center">
+                            <span class="gradient-back-to-earth d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
+                            <span class="font-large-1 d-block mb-2"><?php GetPlayerNumbersByCountry("Zimbabwe"); ?></span>
+                            <span>Zimbabwe</span>
+                          </div>
+                          <div class="col text-center">
+                            <span class="gradient-pomegranate d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
+                            <span class="font-large-1 d-block mb-2"><?php GetPlayerNumbersByCountry("Botswana"); ?></span>
+                            <span>Botswana</span>
+                          </div>
+                          <div class="col text-center">
+                            <span class="gradient-green-tea d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
+                            <span class="font-large-1 d-block mb-2"><?php GetPlayerNumbersByCountry("Namibia"); ?></span>
+                            <span>Namibia</span>
+                          </div>
+                          <div class="col text-center">
+                            <span class="gradient-blackberry d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
+                            <span class="font-large-1 d-block mb-2"><?php GetPlayerNumbersByCountry("Malawi"); ?></span>
+                            <span>Malawi</span>
+                          </div>
+                          <div class="col text-center">
+                            <span class="gradient-ibiza-sunset d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
+                            <span class="font-large-1 d-block mb-2"><?php GetPlayerNumbersByCountry("Zambia"); ?></span>
+                            <span>Zambia</span>
+                          </div>
+                          <div class="col text-center">
+                            <span class="gradient-back-to-earth d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
+                            <span class="font-large-1 d-block mb-2"><?php GetPlayerNumbersByCountry("Angola"); ?></span>
+                            <span>Angola</span>
+                          </div>
+                          <div class="col text-center">
+                            <span class="gradient-back-to-earth d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
+                            <span class="font-large-1 d-block mb-2"><?php GetPlayerNumbersByCountry("Other"); ?></span>
+                            <span>Other</span>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-xl-6 col-lg-12">
-                  <div class="card">
-                    <div class="card-header">
-                          <div class="card-title-wrap bar-warning">
-                        <h4 class="card-title">Project Stats</h4>
-                      </div>
-                    </div>
-                    <div class="card-body">
-
-                      <p class="font-medium-2 text-muted text-center">Project Tasks</p>
-                      <div id="donut-dashboard-chart" class="height-250 donut donutShadow">
-                      </div>
-
-                      <div class="card-block">
-                        <div class="row my-3">
-                          <div class="col">
-                                    <span class="mb-1 text-muted d-block">23% - Started</span>
-                                    <div class="progress" style="height: 8px;">
-                                      <div class="progress-bar gradient-blackberry" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <span class="mb-1 text-muted d-block">35% - In Progress</span>
-                                    <div class="progress" style="height: 8px;">
-                                      <div class="progress-bar gradient-pomegranate" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <span class="mb-1 text-muted d-block">14% - Done</span>
-                                    <div class="progress" style="height: 8px;">
-                                      <div class="progress-bar gradient-green-tea" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                
               </div> 
             
-              
+           <!-- ROW 5 -->
+           <div class="row match-height">
+              <div class="col-xl-2 col-lg-6 col-md-6 col-12" >
+                <div class="card bg-white">
+                    <div class="card-body">
+                      <div class="card-block pt-2 pb-0">
+                        <div class="media">
+                          <div class="media-body white text-left">
+                            <h4 class="font-medium-5 card-title mb-0">Snowwy</h4>
+                            <span class="grey darken-1">Top Season Demos</span>
+                          </div>
+                          <div class="media-right text-right">
+                          <h4 class="font-medium-5 card-title mb-0"><?php getTotalPlayers() ?></h4>
+                          </div>
+                        </div>
+                      </div>
+                    
+                    </div>
+                </div>
+              </div>
+              <div class="col-xl-2 col-lg-6 col-md-6 col-12" >
+                <div class="card bg-white">
+                    <div class="card-body">
+                      <div class="card-block pt-2 pb-0">
+                        <div class="media">
+                          <div class="media-body white text-left">
+                            <h4 class="font-medium-5 card-title mb-0">Skillsteal</h4>
+                            <span class="grey darken-1">Top Season Goals</span>
+                          </div>
+                          <div class="media-right text-right">
+                          <h4 class="font-medium-5 card-title mb-0"><?php getTotalPlayers() ?></h4>
+                          </div>
+                        </div>
+                      </div>
+                    
+                    </div>
+                </div>
+              </div>
+              <div class="col-xl-2 col-lg-6 col-md-6 col-12" >
+                <div class="card bg-white">
+                    <div class="card-body">
+                      <div class="card-block pt-2 pb-0">
+                        <div class="media">
+                          <div class="media-body white text-left">
+                            <h4 class="font-medium-5 card-title mb-0">Snowwy</h4>
+                            <span class="grey darken-1">Top Season Demos</span>
+                          </div>
+                          <div class="media-right text-right">
+                          <h4 class="font-medium-5 card-title mb-0"><?php getTotalPlayers() ?></h4>
+                          </div>
+                        </div>
+                      </div>
+                    
+                    </div>
+                </div>
+              </div>
+              <div class="col-xl-2 col-lg-6 col-md-6 col-12" >
+                <div class="card bg-white">
+                    <div class="card-body">
+                      <div class="card-block pt-2 pb-0">
+                        <div class="media">
+                          <div class="media-body white text-left">
+                            <h4 class="font-medium-5 card-title mb-0">Snowwy</h4>
+                            <span class="grey darken-1">Top Season Saves</span>
+                          </div>
+                          <div class="media-right text-right">
+                          <h4 class="font-medium-5 card-title mb-0"><?php getTotalPlayers() ?></h4>
+                          </div>
+                        </div>
+                      </div>
+                    
+                    </div>
+                </div>
+              </div>
+              <div class="col-xl-2 col-lg-6 col-md-6 col-12" >
+                <div class="card bg-white">
+                    <div class="card-body">
+                      <div class="card-block pt-2 pb-0">
+                        <div class="media">
+                          <div class="media-body white text-left">
+                            <h4 class="font-medium-5 card-title mb-0">Happymeal</h4>
+                            <span class="grey darken-1">Top Season Assists</span>
+                          </div>
+                          <div class="media-right text-right">
+                          <h4 class="font-medium-5 card-title mb-0"><?php getTotalPlayers() ?></h4>
+                          </div>
+                        </div>
+                      </div>
+                    
+                    </div>
+                </div>
+              </div>
+              <div class="col-xl-2 col-lg-6 col-md-6 col-12" >
+                <div class="card bg-white">
+                    <div class="card-body">
+                      <div class="card-block pt-2 pb-0">
+                        <div class="media">
+                          <div class="media-body white text-left">
+                            <h4 class="font-medium-5 card-title mb-0">Mr.Low</h4>
+                            <span class="grey darken-1">Most Overtime Played</span>
+                          </div>
+                          <div class="media-right text-right">
+                          <h4 class="font-medium-5 card-title mb-0">30:34</h4>
+                          </div>
+                        </div>
+                      </div>
+                    
+                    </div>
+                </div>
+              </div>
             </div>
-          </div>
+        
+             
         </div>
 
       </div>
     </div>
-    <!--////////////////////////////////////////////////////////////////////////////-->
 
-    <!-- BEGIN VENDOR JS-->
     <script src="app-assets/vendors/js/core/jquery-3.3.1.min.js"></script>
     <script src="app-assets/vendors/js/core/popper.min.js"></script>
     <script src="app-assets/vendors/js/core/bootstrap.min.js"></script>
@@ -309,16 +988,41 @@ function debug_to_console($data) {
     <script src="app-assets/vendors/js/jquery.matchHeight-min.js"></script>
     <script src="app-assets/vendors/js/screenfull.min.js"></script>
     <script src="app-assets/vendors/js/pace/pace.min.js"></script>
-    <!-- BEGIN VENDOR JS-->
-    <!-- BEGIN PAGE VENDOR JS-->
-    <script src="app-assets/vendors/js/chartist.min.js"></script>
-    <!-- END PAGE VENDOR JS-->
-    <!-- BEGIN CONVEX JS-->
+
     <script src="app-assets/js/app-sidebar.js"></script>
     <script src="app-assets/js/notification-sidebar.js"></script>
-    <!-- END CONVEX JS-->
-    <!-- BEGIN PAGE LEVEL JS-->
+
     <script src="app-assets/js/dashboard-ecommerce.js"></script>
-    <!-- END PAGE LEVEL JS-->
+
+    <script>
+                      function getSeasonSplit(evt, cityName) {
+                        var i, tabcontent, tablinks;
+                        tabcontent = document.getElementsByClassName("tabcontentFilter");
+                        for (i = 0; i < tabcontent.length; i++) {
+                          tabcontent[i].style.display = "none";
+                        }
+                        tablinks = document.getElementsByClassName("tablinks");
+                        for (i = 0; i < tablinks.length; i++) {
+                          tablinks[i].className = tablinks[i].className.replace(" active", "");
+                        }
+                        document.getElementById(cityName).style.display = "block";
+                        evt.currentTarget.className += " active";
+                      }
+
+                      function getSeasonSplitForTeamPlacement(evt, cityName) {
+                        var i, tabcontent, tablinks;
+                        tabcontent = document.getElementsByClassName("tabcontentFilterTeamPlacement");
+                        for (i = 0; i < tabcontent.length; i++) {
+                          tabcontent[i].style.display = "none";
+                        }
+                        tablinks = document.getElementsByClassName("tablinksTeamPlacement");
+                        for (i = 0; i < tablinks.length; i++) {
+                          tablinks[i].className = tablinks[i].className.replace(" active", "");
+                        }
+                        document.getElementById(cityName).style.display = "block";
+                        evt.currentTarget.className += " active";
+                      }
+                      </script>
+
   </body>
 </html>

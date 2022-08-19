@@ -346,7 +346,7 @@
 
          // Bar Chart Starts
         var barChart = new Chartist.Bar('#bar-chart', {
-            labels: ["Sport", "Music", "Travel", "News", "Blog"],
+            labels: ["South Africa", "Réunion", "Mauritius", "Namibia", "Botswana"],
             series: [[35, 20, 30, 45, 55]]
 
         }, {
